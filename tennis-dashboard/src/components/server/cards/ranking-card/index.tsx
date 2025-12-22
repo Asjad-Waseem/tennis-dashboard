@@ -22,11 +22,9 @@ const RankingCard = ({
 }: RankingCardProps): React.ReactElement => {
   return (
     <div
-      className="relative overflow-hidden rounded-[20px]"
+      className="relative h-[100px] w-full overflow-hidden rounded-[20px]"
       style={{
         backgroundColor: bgColor,
-        height: "100px",
-        width: "100%",
       }}
     >
       {/* Mask group container */}
@@ -95,16 +93,10 @@ const RankingCard = ({
       <div className="relative z-10 h-full w-full">
         {/* Category text */}
         <span
-          className="absolute text-white"
+          className="absolute text-sm font-medium leading-[18px] tracking-wide text-white"
           style={{
             left: pxToPercentWidth("15.9741px"),
             top: pxToPercentHeight(textTop),
-            fontFamily:
-              "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-            fontSize: "15px",
-            fontWeight: 500,
-            lineHeight: "18px",
-            letterSpacing: "0.5px",
           }}
         >
           {category}
@@ -119,17 +111,7 @@ const RankingCard = ({
           }}
         >
           {/* Rank number */}
-          <span
-            className="text-white mr-2"
-            style={{
-              fontFamily:
-                "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              fontSize: "25px",
-              fontWeight: 500,
-              lineHeight: "30px",
-              letterSpacing: "0.5px",
-            }}
-          >
+          <span className="mr-2 text-2xl font-medium leading-[30px] tracking-wide text-white">
             {rank}
           </span>
 

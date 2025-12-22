@@ -44,123 +44,53 @@ const PlayerProfileClient = (): React.ReactElement => {
 
   return (
     <aside
-      className="hidden xl:block relative overflow-visible"
+      className="hidden xl:block relative h-[505px] w-[400px] overflow-visible rounded-3xl"
       style={{
-        width: "400px",
-        height: "505px",
         filter: "drop-shadow(0px 50px 80px rgba(102, 30, 255, 0.2))",
-        borderRadius: "30px",
       }}
     >
       {/* Main Card Container */}
-      <div
-        className="absolute inset-0 bg-white overflow-visible"
-        style={{
-          borderRadius: "30px",
-        }}
-      >
+      <div className="absolute inset-0 overflow-visible rounded-3xl bg-white">
         {/* Top Purple Gradient Section */}
         <div
-          className="absolute top-0 left-0 right-0 overflow-visible"
+          className="absolute top-0 left-0 right-0 h-[220px] overflow-visible rounded-t-3xl"
           style={{
-            height: "220px",
             background: gradients.purple,
-            borderRadius: "30px 30px 0 0",
           }}
         >
           {/* Curved white bottom cut (Figma-like) */}
           <svg
-            className="absolute bottom-[-1px] left-0 w-full"
+            className="pointer-events-none absolute bottom-[-1px] left-0 z-[1] w-full"
             height="80"
             viewBox="0 0 400 80"
             preserveAspectRatio="none"
-            style={{
-              zIndex: 1,
-              pointerEvents: "none",
-            }}
           >
             <path d="M0,42 C90,78 210,8 400,30 L400,80 L0,80 Z" fill="white" />
           </svg>
 
           {/* Player Name */}
-          <h1
-            className="absolute text-white"
-            style={{
-              width: "158px",
-              height: "90px",
-              left: "25px",
-              top: "40px",
-              fontFamily:
-                "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              fontStyle: "normal",
-              fontWeight: 700,
-              fontSize: "30px",
-              lineHeight: "150%",
-              letterSpacing: "0.5px",
-              zIndex: 2,
-            }}
-          >
+          <h1 className="absolute left-[25px] top-10 z-[2] h-[90px] w-[158px] text-3xl font-bold leading-[150%] tracking-wide text-white">
             {player.name}
           </h1>
 
           {/* Country Flag and Text Container */}
-          <div
-            className="absolute flex items-center"
-            style={{
-              width: "103px",
-              height: "24px",
-              left: "25px",
-              top: "140px",
-              gap: "10px",
-              zIndex: 2,
-            }}
-          >
+          <div className="absolute left-[25px] top-[140px] z-[2] flex h-6 w-[103px] items-center gap-2.5">
             {/* Flag Icon */}
-            <div
-              className="flex-none"
-              style={{
-                width: "24px",
-                height: "24px",
-              }}
-            >
+            <div className="h-6 w-6 flex-none">
               <CountryFlag
                 country={player.country}
                 countryCode={player.countryCode}
-                width={24}
-                height={24}
               />
             </div>
 
             {/* Country Name */}
-            <span
-              className="text-white flex-none"
-              style={{
-                width: "69px",
-                height: "18px",
-                fontFamily:
-                  "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                fontStyle: "normal",
-                fontWeight: 600,
-                fontSize: "15px",
-                lineHeight: "18px",
-                letterSpacing: "0.5px",
-              }}
-            >
+            <span className="h-[18px] w-[69px] flex-none text-[15px] font-semibold leading-[18px] tracking-wide text-white">
               {player.country}
             </span>
           </div>
 
           {/* Large Profile Person SVG - positioned on the right, fully visible, overflowing top */}
-          <div
-            className="absolute overflow-visible"
-            style={{
-              right: "-35px",
-              top: "-50px",
-              width: "346px",
-              height: "545px",
-              zIndex: 10,
-            }}
-          >
+          <div className="absolute -right-[35px] -top-[50px] z-10 h-[545px] w-[346px] overflow-visible">
             <Image
               src="/highlighted_tennis_player.svg"
               alt={`${player.name} illustration`}
@@ -173,70 +103,30 @@ const PlayerProfileClient = (): React.ReactElement => {
         </div>
 
         {/* White Bottom Section */}
-        <div
-          className="absolute left-0 right-0 overflow-visible rounded-b-3xl"
-          style={{
-            top: "220px",
-            height: "285px",
-            background: colors.white,
-            borderRadius: "0px 0px 30px 30px",
-          }}
-        >
+        <div className="absolute left-0 right-0 top-[220px] h-[285px] overflow-visible rounded-b-3xl bg-white">
           {/* Biography Title */}
-          <h2
-            className="absolute"
-            style={{
-              width: "72px",
-              height: "18px",
-              left: "25px",
-              top: "2px",
-              fontFamily:
-                "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              fontStyle: "normal",
-              fontWeight: 600,
-              fontSize: "15px",
-              lineHeight: "18px",
-              letterSpacing: "0.5px",
-              color: colors.text.primary,
-            }}
-          >
+          <h2 className="absolute left-[25px] top-0.5 h-[18px] w-[72px] text-[15px] font-semibold leading-[18px] tracking-wide text-gray-900">
             Biography
           </h2>
 
           {/* Small Avatar Icon under Biography */}
-          <div
-            className="absolute overflow-hidden"
-            style={{
-              width: "50px",
-              height: "60px",
-              left: "24px",
-              top: "28px",
-              borderRadius: "20px 10px",
-            }}
-          >
+          <div className="absolute left-6 top-7 h-[60px] w-[50px] overflow-hidden rounded-[20px_10px]">
             <div
-              className="absolute inset-0"
+              className="absolute inset-0 rounded-[20px_10px]"
               style={{
                 background: colors.pink.primary,
-                borderRadius: "20px 10px",
               }}
             />
             <div
-              className="absolute inset-0"
+              className="absolute inset-0 rounded-[20px_10px] opacity-30"
               style={{
                 background: colors.gray.light,
-                borderRadius: "20px 10px",
-                opacity: 0.3,
               }}
             />
             {/* Player Avatar Image */}
             <div
-              className="absolute overflow-hidden"
+              className="absolute left-[4.5px] top-[1.69px] h-[56.62px] w-[41px] overflow-hidden"
               style={{
-                width: "41px",
-                height: "56.62px",
-                left: "4.5px",
-                top: "1.69px",
                 background: colors.pink.primary,
               }}
             >
@@ -254,56 +144,15 @@ const PlayerProfileClient = (): React.ReactElement => {
           </div>
 
           {/* Biography Details */}
-          <div
-            className="absolute flex flex-col"
-            style={{
-              width: "122px",
-              height: "86px",
-              left: "24px",
-              top: "104px",
-              gap: "10px",
-              fontFamily:
-                "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              fontStyle: "normal",
-              fontWeight: 600,
-              fontSize: "12px",
-              lineHeight: "14px",
-              letterSpacing: "0.5px",
-              color: colors.text.primary,
-            }}
-          >
-            <div className="whitespace-nowrap">
-              Age : {player.age}
-            </div>
-            <div className="whitespace-nowrap">
-              Birth : {player.birthDate}
-            </div>
-            <div className="whitespace-nowrap">
-              Sex : {player.sex}
-            </div>
-            <div className="whitespace-nowrap">
-              WTA : {player.wta}
-            </div>
+          <div className="absolute left-6 top-[104px] flex h-[86px] w-[122px] flex-col gap-2.5 text-xs font-semibold leading-[14px] tracking-wide text-gray-900">
+            <div className="whitespace-nowrap">Age : {player.age}</div>
+            <div className="whitespace-nowrap">Birth : {player.birthDate}</div>
+            <div className="whitespace-nowrap">Sex : {player.sex}</div>
+            <div className="whitespace-nowrap">WTA : {player.wta}</div>
           </div>
 
           {/* Social Media Title */}
-          <h3
-            className="absolute whitespace-nowrap"
-            style={{
-              width: "auto",
-              height: "14px",
-              left: "25px",
-              top: "208px",
-              fontFamily:
-                "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              fontStyle: "normal",
-              fontWeight: 600,
-              fontSize: "12px",
-              lineHeight: "14px",
-              letterSpacing: "0.5px",
-              color: colors.text.primary,
-            }}
-          >
+          <h3 className="absolute left-[25px] top-[208px] h-[14px] whitespace-nowrap text-xs font-semibold leading-[14px] tracking-wide text-gray-900">
             Social Media
           </h3>
 
@@ -316,4 +165,3 @@ const PlayerProfileClient = (): React.ReactElement => {
 };
 
 export default PlayerProfileClient;
-

@@ -9,7 +9,6 @@ import { getIcon } from "./utils";
 const NavigationItemClient = ({
   item,
   isCollapsed = false,
-  additionalStyles,
   onClick,
 }: NavigationItemClientProps): React.ReactElement => {
   const isActive = item.isActive ?? false;
@@ -22,31 +21,19 @@ const NavigationItemClient = ({
   };
 
   return (
-    <div className="relative" style={{ width: "260px" }}>
+    <div className="relative w-[260px]">
       {isActive && !isCollapsed && (
         <div 
-          className="absolute top-1/2 h-[30px] w-[5px] -translate-y-1/2 rounded-[50px] shadow-[_-2px_0px_10px_2px_rgba(0,56,255,0.15)]"
-          style={{
-            backgroundColor: colors.primary.blue,
-            right: "0",
-          }}
+          className="absolute right-0 top-1/2 h-[30px] w-[5px] -translate-y-1/2 rounded-[50px] bg-blue-600 shadow-[_-2px_0px_10px_2px_rgba(0,56,255,0.15)]"
         />
       )}
       <Link
         href={item.href}
         onClick={handleClick}
         className={cn(
-          "relative flex items-center gap-[10px] rounded-lg px-3 py-2 transition-all duration-200"
+          "relative flex items-center gap-2.5 rounded-lg bg-transparent px-3 py-2 transition-all duration-200",
+          isActive ? "hover:bg-blue-100" : "hover:bg-blue-50"
         )}
-        style={{
-          backgroundColor: "transparent",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = isActive ? colors.primary.blueLighter : colors.primary.blueLightest;
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = "transparent";
-        }}
         title={isCollapsed ? item.label : undefined}
       >
         <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center">
@@ -55,13 +42,9 @@ const NavigationItemClient = ({
         {!isCollapsed && (
           <>
             <span
-              className="text-[15px] leading-[18px] tracking-[1px]"
-              style={{
-                fontFamily:
-                  "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                fontWeight: 400,
-                color: isActive ? colors.primary.blue : colors.purple.light,
-              }}
+              className={`text-[15px] font-normal leading-[18px] tracking-wider ${
+                isActive ? "text-blue-600" : "text-[#B9C0DE]"
+              }`}
             >
               {item.label}
             </span>

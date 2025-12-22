@@ -21,13 +21,10 @@ const Sidebar = ({
 }: SidebarProps): React.ReactElement => {
   return (
     <aside
-      className="relative h-full flex-col"
-      style={{
-        width: isCollapsed ? "80px" : "300px",
-        background: "rgba(255, 255, 255, 0.8)",
-        backdropFilter: "blur(40px)",
-        transition: "width 0.3s ease-in-out",
-      }}
+      className={cn(
+        "relative h-full flex-col bg-white/80 backdrop-blur-[40px] transition-all duration-300",
+        isCollapsed ? "w-20" : "w-[300px]"
+      )}
     >
       {/* Branding */}
       <div
@@ -90,19 +87,7 @@ const Sidebar = ({
         </div>
         {/* Tennis text */}
         {!isCollapsed && (
-          <span
-            className="absolute left-[60px] top-0 transition-opacity duration-300"
-            style={{
-              width: "83px",
-              height: "38px",
-              fontFamily: "'Poppins', sans-serif",
-              fontStyle: "normal",
-              fontWeight: 600,
-              fontSize: "25px",
-              lineHeight: "38px",
-              color: colors.text.dark,
-            }}
-          >
+          <span className="absolute left-[60px] top-0 h-[38px] w-[83px] text-2xl font-semibold leading-[38px] text-[#2C2745] transition-opacity duration-300">
             Tennis
           </span>
         )}
@@ -164,9 +149,9 @@ const Sidebar = ({
               </div>
 
               {/* Text */}
-              <p className="mb-4 w-[151px] text-center text-[15px] font-light leading-[18px] tracking-[1px]" style={{ color: colors.text.darkPurple }}>
+              <p className="mb-4 w-[151px] text-center text-[15px] font-light leading-[18px] tracking-[1px] text-[#1B0031]">
                 Upgrade to{" "}
-                <span className="font-medium" style={{ color: colors.primary.blue }}>PRO</span> for more
+                <span className="font-medium text-[#1657FF]">PRO</span> for more
                 features.
               </p>
 
@@ -174,14 +159,7 @@ const Sidebar = ({
               <button
                 type="button"
                 onClick={onUpgradeClick}
-                className="flex h-[54px] w-[230px] items-center justify-center rounded-[15px] text-[15px] font-medium leading-[18px] text-white transition-all duration-200 hover:shadow-lg cursor-pointer"
-                style={{ backgroundColor: colors.primary.blue }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = colors.primary.blueDark;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = colors.primary.blue;
-                }}
+                className="flex h-[54px] w-[230px] cursor-pointer items-center justify-center rounded-[15px] bg-[#1657FF] text-[15px] font-medium leading-[18px] text-white transition-all duration-200 hover:bg-[#1245CC] hover:shadow-lg"
               >
                 Upgrade
               </button>

@@ -97,7 +97,7 @@ const StatisticsSectionClient = (): React.ReactElement => {
         />
 
         {/* Global Statistic */}
-        <div className="flex h-full min-h-[350px] flex-col rounded-[30px] bg-white p-6 overflow-visible">
+        <div className="flex h-full min-h-[350px] flex-col rounded-3xl bg-white p-6 overflow-visible">
           <div className="flex flex-1 items-center justify-center overflow-visible">
             <GlobalStatsDonutChart stats={stats.globalStats} />
           </div>

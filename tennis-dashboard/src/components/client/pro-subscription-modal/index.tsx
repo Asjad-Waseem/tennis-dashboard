@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import { colors } from "@/lib/theme";
 import type { ProSubscriptionModalProps } from "./types";
 
 const ProSubscriptionModal = ({
@@ -82,7 +81,7 @@ const ProSubscriptionModal = ({
         {/* Content */}
         <div className="text-center">
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
-            Upgrade to <span style={{ color: colors.primary.blue }}>PRO</span>
+            Upgrade to <span className="text-blue-600">PRO</span>
           </h2>
           <p className="mb-6 text-gray-600">
             Unlock premium features and get access to exclusive content,
@@ -98,10 +97,9 @@ const ProSubscriptionModal = ({
               "Priority customer support",
             ].map((feature, index) => (
               <div key={index} className="flex items-center gap-3">
-                <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: `${colors.primary.blue}1A` }}>
+                <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-600/10">
                   <svg
-                    className="h-3 w-3"
-                    style={{ color: colors.primary.blue }}
+                    className="h-3 w-3 text-blue-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -123,14 +121,7 @@ const ProSubscriptionModal = ({
           <button
             type="button"
             onClick={onClose}
-            className="w-full cursor-pointer rounded-2xl px-6 py-4 text-base font-semibold text-white transition-all hover:shadow-lg"
-            style={{ backgroundColor: colors.primary.blue }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = colors.primary.blueDark;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = colors.primary.blue;
-            }}
+            className="w-full cursor-pointer rounded-2xl bg-blue-600 px-6 py-4 text-base font-semibold text-white transition-all hover:bg-blue-700 hover:shadow-lg"
           >
             Subscribe to PRO
           </button>

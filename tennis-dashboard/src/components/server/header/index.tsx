@@ -27,21 +27,7 @@ const Header = (): React.ReactElement => {
           />
         </svg>
 
-        <h1
-          className="whitespace-nowrap"
-          style={{
-            width: "162px",
-            height: "36px",
-            fontFamily:
-              "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-            fontStyle: "normal",
-            fontWeight: 600,
-            fontSize: "30px",
-            lineHeight: "36px",
-            letterSpacing: "1px",
-            color: "#3C3F88",
-          }}
-        >
+        <h1 className="h-9 w-[162px] whitespace-nowrap text-3xl font-semibold leading-9 tracking-[1px] text-[#3C3F88]">
           Live Scores
         </h1>
       </div>

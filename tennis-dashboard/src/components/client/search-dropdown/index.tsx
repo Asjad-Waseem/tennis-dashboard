@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { colors } from "@/lib/theme";
 
 const SearchDropdown = (): React.ReactElement => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -57,15 +56,11 @@ const SearchDropdown = (): React.ReactElement => {
   return (
     <div
       ref={containerRef}
-      className="fixed z-50 bg-white shadow-xl"
+      className="fixed z-50 min-w-[300px] max-w-[90vw] rounded-[20px] bg-white shadow-[0px_20px_50px_rgba(102,30,255,0.15)]"
       style={{
         top: `${topPosition}px`,
         right: `${rightPosition}px`,
         width: "min(40vw, 500px)",
-        maxWidth: "90vw",
-        minWidth: "300px",
-        boxShadow: "0px 20px 50px rgba(102, 30, 255, 0.15)",
-        borderRadius: "20px",
       }}
     >
       {/* Search Input */}
@@ -77,21 +72,7 @@ const SearchDropdown = (): React.ReactElement => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search..."
-            className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 pl-12 pr-10 text-sm text-gray-900 placeholder:text-gray-400 transition-colors focus:outline-none focus:ring-2"
-            style={{
-              "--focus-border-color": colors.primary.blue,
-              "--focus-ring-color": `${colors.primary.blue}33`,
-              fontFamily:
-                "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-            } as React.CSSProperties & { "--focus-border-color": string; "--focus-ring-color": string }}
-            onFocus={(e) => {
-              e.currentTarget.style.borderColor = colors.primary.blue;
-              e.currentTarget.style.boxShadow = `0 0 0 2px ${colors.primary.blue}33`;
-            }}
-            onBlur={(e) => {
-              e.currentTarget.style.borderColor = "";
-              e.currentTarget.style.boxShadow = "";
-            }}
+            className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 pl-12 pr-10 text-sm text-gray-900 placeholder:text-gray-400 transition-colors focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"
           />
           {/* Search Icon */}
           <svg
@@ -166,22 +147,10 @@ const SearchDropdown = (): React.ReactElement => {
                     d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <p
-                  className="mt-4 text-sm font-medium text-gray-500"
-                  style={{
-                    fontFamily:
-                      "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                  }}
-                >
+                <p className="mt-4 text-sm font-medium text-gray-500">
                   No search results found
                 </p>
-                <p
-                  className="mt-1 text-xs text-gray-400"
-                  style={{
-                    fontFamily:
-                      "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                  }}
-                >
+                <p className="mt-1 text-xs text-gray-400">
                   Try searching for something else
                 </p>
               </div>

@@ -69,7 +69,7 @@ const LatestScores = (): React.ReactElement => {
             className={`h-[18px] whitespace-nowrap text-[15px] leading-[18px] tracking-wide ${
               activeTab === "Singles"
                 ? "font-medium text-cyan-500"
-                : "font-normal text-blue-300"
+                : `font-normal text-[${colors.primary.blueLight}]`
             }`}
           >
             Singles
@@ -88,7 +88,7 @@ const LatestScores = (): React.ReactElement => {
             className={`h-[18px] whitespace-nowrap text-[15px] leading-[18px] tracking-wide ${
               activeTab === "Doubles"
                 ? "font-medium text-cyan-500"
-                : "font-normal text-blue-300"
+                : `font-normal text-[${colors.primary.blueLight}]`
             }`}
           >
             Doubles
@@ -107,7 +107,7 @@ const LatestScores = (): React.ReactElement => {
             className={`h-[18px] whitespace-nowrap text-[15px] leading-[18px] tracking-wide ${
               activeTab === "Mixed Doubles"
                 ? "font-medium text-cyan-500"
-                : "font-normal text-blue-300"
+                : `font-normal text-[${colors.primary.blueLight}]`
             }`}
           >
             Mixed Doubles

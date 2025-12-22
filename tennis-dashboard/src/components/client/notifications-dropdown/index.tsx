@@ -1,46 +1,19 @@
 "use client";
 
-import { colors } from "@/lib/theme";
-
 const NotificationsDropdown = (): React.ReactElement => {
   // For now, showing empty state - can be populated with actual notifications later
   const hasNotifications = false;
 
   return (
-    <div
-      className="absolute right-0 top-12 z-50 w-80 rounded-[20px] bg-white shadow-2xl"
-      style={{
-        boxShadow: "0px 20px 50px rgba(102, 30, 255, 0.15)",
-      }}
-    >
+    <div className="absolute right-0 top-12 z-50 w-80 rounded-[20px] bg-white shadow-[0px_20px_50px_rgba(102,30,255,0.15)]">
       {/* Header */}
       <div className="border-b border-gray-100 px-4 py-3">
         <div className="flex items-center justify-between">
-          <h3
-            className="text-base font-semibold text-gray-900"
-            style={{
-              fontFamily:
-                "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              letterSpacing: "0.5px",
-            }}
-          >
+          <h3 className="text-base font-semibold tracking-wide text-gray-900">
             Notifications
           </h3>
           {hasNotifications && (
-            <button
-              className="text-xs font-medium transition-colors"
-              style={{
-                color: colors.primary.blue,
-                fontFamily:
-                  "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = colors.primary.blueDark;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = colors.primary.blue;
-              }}
-            >
+            <button className="text-xs font-medium text-blue-600 transition-colors hover:text-blue-800">
               Mark all as read
             </button>
           )}
@@ -72,22 +45,10 @@ const NotificationsDropdown = (): React.ReactElement => {
                   d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
                 />
               </svg>
-              <p
-                className="mt-4 text-sm font-medium text-gray-500"
-                style={{
-                  fontFamily:
-                    "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                }}
-              >
+              <p className="mt-4 text-sm font-medium text-gray-500">
                 No notifications
               </p>
-              <p
-                className="mt-1 text-xs text-gray-400"
-                style={{
-                  fontFamily:
-                    "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                }}
-              >
+              <p className="mt-1 text-xs text-gray-400">
                 You're all caught up!
               </p>
             </div>
