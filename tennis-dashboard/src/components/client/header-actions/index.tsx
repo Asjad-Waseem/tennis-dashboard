@@ -172,7 +172,7 @@ const HeaderActions = (): React.ReactElement => {
           <rect width="30" height="30" rx="5" fill="#D9C8FF" />
           <mask
             id="mask0_9_3513"
-            style={{ maskType: "alpha" }}
+            maskType="alpha"
             maskUnits="userSpaceOnUse"
             x="0"
             y="0"
@@ -189,7 +189,7 @@ const HeaderActions = (): React.ReactElement => {
               />
               <mask
                 id="mask1_9_3513"
-                style={{ maskType: "alpha" }}
+                maskType="alpha"
                 maskUnits="userSpaceOnUse"
                 x="7"
                 y="19"
@@ -231,7 +231,7 @@ const HeaderActions = (): React.ReactElement => {
               />
               <mask
                 id="mask2_9_3513"
-                style={{ maskType: "alpha" }}
+                maskType="alpha"
                 maskUnits="userSpaceOnUse"
                 x="14"
                 y="15"
@@ -271,7 +271,7 @@ const HeaderActions = (): React.ReactElement => {
               />
               <mask
                 id="mask3_9_3513"
-                style={{ maskType: "alpha" }}
+                maskType="alpha"
                 maskUnits="userSpaceOnUse"
                 x="11"
                 y="6"

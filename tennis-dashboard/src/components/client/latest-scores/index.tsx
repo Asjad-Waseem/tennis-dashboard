@@ -34,108 +34,43 @@ const LatestScores = (): React.ReactElement => {
 
   if (isLoading || !latestMatch) {
     return (
-      <div
-        className="relative"
-        style={{
-          width: "400px",
-          height: "220px",
-          background: colors.white,
-          borderRadius: "30px",
-        }}
-      >
+      <div className="relative h-56 w-96 rounded-3xl bg-white">
         <div className="h-full w-full animate-pulse rounded-3xl bg-gray-100" />
       </div>
     );
   }
 
   return (
-    <div
-      className="relative"
-      style={{
-        width: "400px",
-        height: "220px",
-        background: colors.white,
-        borderRadius: "30px",
-      }}
-    >
-      {/* Latest Scores Title */}
-      <h2
-        className="absolute whitespace-nowrap"
-        style={{
-          width: "124px",
-          height: "24px",
-          left: "20px",
-          top: "20px",
-          fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-          fontStyle: "normal",
-          fontWeight: 500,
-          fontSize: "20px",
-          lineHeight: "24px",
-          letterSpacing: "0.5px",
-          color: colors.text.primary,
-        }}
-      >
-        Latest Scores
-      </h2>
-
-      {/* View All Link */}
-      <a
-        href="#"
-        className="absolute cursor-pointer hover:opacity-80 whitespace-nowrap"
-        style={{
-          width: "57px",
-          height: "18px",
-          left: "318px",
-          top: "25px",
-          fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-          fontStyle: "normal",
-          fontWeight: 600,
-          fontSize: "15px",
-          lineHeight: "18px",
-          textAlign: "right",
-          letterSpacing: "0.5px",
-          color: colors.primary.blue,
-        }}
-      >
-        View All
-      </a>
+    <div className="relative h-56 w-96 rounded-3xl bg-white">
+      {/* Header Section */}
+      <div className="absolute left-5 right-5 top-5 flex items-center justify-between">
+        <h2 className="text-xl font-medium leading-6 tracking-wide text-gray-900">
+          Latest Scores
+        </h2>
+        <a
+          href="#"
+          className="cursor-pointer text-[15px] font-semibold leading-[18px] tracking-wide text-blue-600 hover:opacity-80"
+        >
+          View All
+        </a>
+      </div>
 
       {/* Tabs Section */}
-      <div
-        className="absolute flex flex-row items-center flex-nowrap"
-        style={{
-          padding: "0px",
-          gap: "15px",
-          width: "auto",
-          height: "24px",
-          left: "20px",
-          top: "59px",
-        }}
-      >
+      <div className="absolute left-5 top-[59px] flex h-6 flex-row items-center gap-4">
         {/* Singles Tab */}
         <button
           type="button"
           onClick={() => setActiveTab("Singles")}
-          className="flex flex-row items-center cursor-pointer transition-all whitespace-nowrap"
-          style={{
-            padding: activeTab === "Singles" ? "3px 6px" : "0",
-            height: "24px",
-            background: activeTab === "Singles" ? colors.cyan.light : "transparent",
-            borderRadius: "5px",
-          }}
+          className={`flex h-6 cursor-pointer flex-row items-center whitespace-nowrap rounded-md transition-all ${
+            activeTab === "Singles" ? "bg-cyan-50 px-1.5 py-0.5" : "px-0"
+          }`}
         >
           <span
-            className="whitespace-nowrap"
-            style={{
-              height: "18px",
-              fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              fontStyle: "normal",
-              fontWeight: activeTab === "Singles" ? 500 : 400,
-              fontSize: "15px",
-              lineHeight: "18px",
-              letterSpacing: "0.5px",
-              color: activeTab === "Singles" ? colors.cyan.primary : colors.primary.blueLight,
-            }}
+            className={`h-[18px] whitespace-nowrap text-[15px] leading-[18px] tracking-wide ${
+              activeTab === "Singles"
+                ? "font-medium text-cyan-500"
+                : "font-normal text-blue-300"
+            }`}
           >
             Singles
           </span>
@@ -145,26 +80,16 @@ const LatestScores = (): React.ReactElement => {
         <button
           type="button"
           onClick={() => setActiveTab("Doubles")}
-          className="flex flex-row items-center cursor-pointer transition-all whitespace-nowrap"
-          style={{
-            padding: activeTab === "Doubles" ? "3px 6px" : "0",
-            height: "24px",
-            background: activeTab === "Doubles" ? colors.cyan.light : "transparent",
-            borderRadius: "5px",
-          }}
+          className={`flex h-6 cursor-pointer flex-row items-center whitespace-nowrap rounded-md transition-all ${
+            activeTab === "Doubles" ? "bg-cyan-50 px-1.5 py-0.5" : "px-0"
+          }`}
         >
           <span
-            className="whitespace-nowrap"
-            style={{
-              height: "18px",
-              fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              fontStyle: "normal",
-              fontWeight: activeTab === "Doubles" ? 500 : 400,
-              fontSize: "15px",
-              lineHeight: "18px",
-              letterSpacing: "0.5px",
-              color: activeTab === "Doubles" ? colors.cyan.primary : colors.primary.blueLight,
-            }}
+            className={`h-[18px] whitespace-nowrap text-[15px] leading-[18px] tracking-wide ${
+              activeTab === "Doubles"
+                ? "font-medium text-cyan-500"
+                : "font-normal text-blue-300"
+            }`}
           >
             Doubles
           </span>
@@ -174,26 +99,16 @@ const LatestScores = (): React.ReactElement => {
         <button
           type="button"
           onClick={() => setActiveTab("Mixed Doubles")}
-          className="flex flex-row items-center cursor-pointer transition-all whitespace-nowrap"
-          style={{
-            padding: activeTab === "Mixed Doubles" ? "3px 6px" : "0",
-            height: "24px",
-            background: activeTab === "Mixed Doubles" ? colors.cyan.light : "transparent",
-            borderRadius: "5px",
-          }}
+          className={`flex h-6 cursor-pointer flex-row items-center whitespace-nowrap rounded-md transition-all ${
+            activeTab === "Mixed Doubles" ? "bg-cyan-50 px-1.5 py-0.5" : "px-0"
+          }`}
         >
           <span
-            className="whitespace-nowrap"
-            style={{
-              height: "18px",
-              fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              fontStyle: "normal",
-              fontWeight: activeTab === "Mixed Doubles" ? 500 : 400,
-              fontSize: "15px",
-              lineHeight: "18px",
-              letterSpacing: "0.5px",
-              color: activeTab === "Mixed Doubles" ? colors.cyan.primary : colors.primary.blueLight,
-            }}
+            className={`h-[18px] whitespace-nowrap text-[15px] leading-[18px] tracking-wide ${
+              activeTab === "Mixed Doubles"
+                ? "font-medium text-cyan-500"
+                : "font-normal text-blue-300"
+            }`}
           >
             Mixed Doubles
           </span>
@@ -203,16 +118,12 @@ const LatestScores = (): React.ReactElement => {
       {/* Match Info Section */}
       {/* Person Avatar SVG */}
       <svg
-        className="absolute"
+        className="absolute left-5 top-[103px]"
         width="20"
         height="20"
         viewBox="0 0 20 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{
-          left: "20px",
-          top: "103px",
-        }}
       >
         <path
           fillRule="evenodd"
@@ -229,35 +140,18 @@ const LatestScores = (): React.ReactElement => {
       </svg>
 
       {/* Tournament Text */}
-      <span
-        className="absolute whitespace-nowrap"
-        style={{
-          left: "45px",
-          top: "106px",
-          fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-          fontStyle: "normal",
-          fontWeight: 400,
-          fontSize: "15px",
-          lineHeight: "18px",
-          letterSpacing: "0.5px",
-          color: colors.text.primary,
-        }}
-      >
+      <span className="absolute left-[45px] top-[106px] whitespace-nowrap text-[15px] font-normal leading-[18px] tracking-wide text-gray-900">
         WTA - {activeTab === "Mixed Doubles" ? "MIXED" : activeTab.toUpperCase()}: {latestMatch.tournament}, {latestMatch.surface}
       </span>
 
       {/* Star Icon */}
       <svg
-        className="absolute"
+        className="absolute right-5 top-[103px]"
         width="20"
         height="20"
         viewBox="0 0 20 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{
-          right: "20px",
-          top: "103px",
-        }}
       >
         <path
           fillRule="evenodd"
@@ -268,21 +162,8 @@ const LatestScores = (): React.ReactElement => {
       </svg>
 
       {/* Player 1 - Anindita R. (IDN) */}
-      <div className="absolute" style={{ left: "25px", top: "144px" }}>
-        <span
-          className="whitespace-nowrap"
-          style={{
-            width: "118px",
-            height: "18px",
-            fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-            fontStyle: "normal",
-            fontWeight: 600,
-            fontSize: "15px",
-            lineHeight: "18px",
-            letterSpacing: "0.5px",
-            color: colors.text.secondary,
-          }}
-        >
+      <div className="absolute left-[25px] top-[144px]">
+        <span className="h-[18px] w-[118px] whitespace-nowrap text-[15px] font-semibold leading-[18px] tracking-wide text-black">
           {latestMatch.player1.shortName} ({latestMatch.player1.countryCode})
         </span>
       </div>
@@ -294,20 +175,8 @@ const LatestScores = (): React.ReactElement => {
         return (
           <span
             key={index}
-            className="absolute"
-            style={{
-              width: "9px",
-              height: "18px",
-              left: `${leftPosition}px`,
-              top: "144px",
-              fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              fontStyle: "normal",
-              fontWeight: 400,
-              fontSize: "15px",
-              lineHeight: "18px",
-              letterSpacing: "0.5px",
-              color: colors.text.secondary,
-            }}
+            className="absolute top-[144px] h-[18px] w-[9px] text-[15px] font-normal leading-[18px] tracking-wide text-black"
+            style={{ left: `${leftPosition}px` }}
           >
             {set.player1}
           </span>
@@ -316,63 +185,17 @@ const LatestScores = (): React.ReactElement => {
 
       {/* WIN Badge - Only show if player1 won */}
       {latestMatch.winner === "player1" && (
-        <div
-          className="absolute"
-          style={{
-            width: "45px",
-            height: "25px",
-            left: "335px",
-            top: "144px",
-          }}
-        >
-          <div
-            className="absolute"
-            style={{
-              width: "45px",
-              height: "25px",
-              left: "0px",
-              top: "0px",
-              background: colors.yellow.light,
-              borderRadius: "5px",
-            }}
-          />
-          <span
-            className="absolute"
-            style={{
-              width: "30px",
-              height: "18px",
-              left: "8px",
-              top: "3.5px",
-              fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              fontStyle: "normal",
-              fontWeight: 600,
-              fontSize: "15px",
-              lineHeight: "18px",
-              letterSpacing: "0.5px",
-              color: colors.yellow.medium,
-            }}
-          >
+        <div className="absolute right-4 top-[144px] h-[25px] w-[45px]">
+          <div className="absolute left-0 top-0 h-[25px] w-[45px] rounded-md bg-yellow-50" />
+          <span className="absolute left-2 top-[3.5px] h-[18px] w-[30px] text-[15px] font-semibold leading-[18px] tracking-wide text-yellow-600">
             WIN
           </span>
         </div>
       )}
 
       {/* Player 2 - Naomi O. (JPN) */}
-      <div className="absolute" style={{ left: "25px", top: "182px" }}>
-        <span
-          className="whitespace-nowrap"
-          style={{
-            width: "103px",
-            height: "18px",
-            fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-            fontStyle: "normal",
-            fontWeight: 400,
-            fontSize: "15px",
-            lineHeight: "18px",
-            letterSpacing: "0.5px",
-            color: colors.text.secondary,
-          }}
-        >
+      <div className="absolute left-[25px] top-[182px]">
+        <span className="h-[18px] w-[103px] whitespace-nowrap text-[15px] font-normal leading-[18px] tracking-wide text-black">
           {latestMatch.player2.shortName} ({latestMatch.player2.countryCode})
         </span>
       </div>
@@ -384,20 +207,8 @@ const LatestScores = (): React.ReactElement => {
         return (
           <span
             key={index}
-            className="absolute"
-            style={{
-              width: "9px",
-              height: "18px",
-              left: `${leftPosition}px`,
-              top: "182px",
-              fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              fontStyle: "normal",
-              fontWeight: 400,
-              fontSize: "15px",
-              lineHeight: "18px",
-              letterSpacing: "0.5px",
-              color: colors.text.secondary,
-            }}
+            className="absolute top-[182px] h-[18px] w-[9px] text-[15px] font-normal leading-[18px] tracking-wide text-black"
+            style={{ left: `${leftPosition}px` }}
           >
             {set.player2}
           </span>
@@ -406,42 +217,9 @@ const LatestScores = (): React.ReactElement => {
 
       {/* WIN Badge for Player 2 - Only show if player2 won */}
       {latestMatch.winner === "player2" && (
-        <div
-          className="absolute"
-          style={{
-            width: "45px",
-            height: "25px",
-            left: "335px",
-            top: "182px",
-          }}
-        >
-          <div
-            className="absolute"
-            style={{
-              width: "45px",
-              height: "25px",
-              left: "0px",
-              top: "0px",
-              background: colors.yellow.light,
-              borderRadius: "5px",
-            }}
-          />
-          <span
-            className="absolute"
-            style={{
-              width: "30px",
-              height: "18px",
-              left: "8px",
-              top: "3.5px",
-              fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-              fontStyle: "normal",
-              fontWeight: 600,
-              fontSize: "15px",
-              lineHeight: "18px",
-              letterSpacing: "0.5px",
-              color: colors.yellow.medium,
-            }}
-          >
+        <div className="absolute right-4 top-[182px] h-[25px] w-[45px]">
+          <div className="absolute left-0 top-0 h-[25px] w-[45px] rounded-md bg-yellow-50" />
+          <span className="absolute left-2 top-[3.5px] h-[18px] w-[30px] text-[15px] font-semibold leading-[18px] tracking-wide text-yellow-600">
             WIN
           </span>
         </div>

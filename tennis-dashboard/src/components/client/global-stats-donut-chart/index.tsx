@@ -100,10 +100,7 @@ const GlobalStatisticChart = ({ stats }: Props) => {
 
   return (
     <div>
-      <h2
-        className="text-xl text-center font-medium leading-6 tracking-[0.5px]"
-        style={{ color: colors.text.primary }}
-      >
+      <h2 className="text-xl text-center font-medium leading-6 tracking-wide text-gray-900">
         Global Statistic
       </h2>
 
