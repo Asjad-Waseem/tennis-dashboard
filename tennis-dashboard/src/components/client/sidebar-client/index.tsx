@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Sidebar from "@/components/server/sidebar";
-import ProSubscriptionModal from "../pro-subscription-modal";
+import ProSubscriptionModal from "@/components/client/pro-subscription-modal";
 
-export default function SidebarClient(): React.ReactElement {
+const SidebarClient = (): React.ReactElement => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -26,5 +26,7 @@ export default function SidebarClient(): React.ReactElement {
       />
     </>
   );
-}
+};
+
+export default SidebarClient;
 

@@ -3,10 +3,10 @@
 import { useRef, useEffect } from "react";
 import type { UserMenuProps } from "./types";
 
-export default function UserMenu({
+const UserMenu = ({
   isOpen,
   onClose,
-}: UserMenuProps): React.ReactElement {
+}: UserMenuProps): React.ReactElement => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -132,5 +132,7 @@ export default function UserMenu({
       </div>
     </div>
   );
-}
+};
+
+export default UserMenu;
 

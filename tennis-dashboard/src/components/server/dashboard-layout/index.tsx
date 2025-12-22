@@ -1,5 +1,5 @@
 import CollapsibleSidebar from "@/components/client/layout/collapsible-siderbar";
-import Header from "../header";
+import Header from "@/components/server/header";
 import { colors } from "@/lib/theme";
 import type { DashboardLayoutProps } from "./types";
 
@@ -11,9 +11,9 @@ import type { DashboardLayoutProps } from "./types";
  * - Composes other server components (Sidebar, Header)
  * - Provides structure for the entire dashboard
  */
-export default function DashboardLayout({
+const DashboardLayout = ({
   children,
-}: DashboardLayoutProps): React.ReactElement {
+}: DashboardLayoutProps): React.ReactElement => {
   return (
     <div className="flex min-h-screen" style={{ backgroundColor: colors.primary.blueBackgroundLight }}>
       {/* Sidebar - Collapsible, hidden on mobile, visible on desktop */}
@@ -28,5 +28,7 @@ export default function DashboardLayout({
       </div>
     </div>
   );
-}
+};
+
+export default DashboardLayout;
 

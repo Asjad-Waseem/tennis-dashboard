@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 import { usePlayer } from "@/contexts/PlayerContext";
 import type { Statistics } from "@/types";
-import PerformanceBarChartCard from "../performance-bar-chart-card";
-import GlobalStatsDonutChart from "../global-stats-donut-chart";
+import PerformanceBarChartCard from "@/components/client/performance-bar-chart-card";
+import GlobalStatsDonutChart from "@/components/client/global-stats-donut-chart";
 import type { PlayerStatisticsData } from "./types";
 import { CURRENT_YEAR } from "./constants";
 
-export default function StatisticsSectionClient(): React.ReactElement {
+const StatisticsSectionClient = (): React.ReactElement => {
   const { selectedPlayerId } = usePlayer();
   const [statisticsByYear, setStatisticsByYear] = useState<
     Record<number, Statistics>
@@ -105,5 +105,7 @@ export default function StatisticsSectionClient(): React.ReactElement {
       </div>
     </section>
   );
-}
+};
+
+export default StatisticsSectionClient;
 

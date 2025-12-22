@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { colors } from "@/lib/theme";
 
-export default function SearchDropdown(): React.ReactElement {
+const SearchDropdown = (): React.ReactElement => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showResults, setShowResults] = useState(false);
@@ -191,5 +191,7 @@ export default function SearchDropdown(): React.ReactElement {
       )}
     </div>
   );
-}
+};
+
+export default SearchDropdown;
 

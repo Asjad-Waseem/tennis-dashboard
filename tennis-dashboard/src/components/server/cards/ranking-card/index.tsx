@@ -10,7 +10,7 @@
 import type { RankingCardProps } from "./types";
 import { pxToPercentWidth, pxToPercentHeight, convertTransformOrigin } from "./utils";
 
-export default function RankingCard({
+const RankingCard = ({
   category,
   rank,
   arrowDirection,
@@ -19,7 +19,7 @@ export default function RankingCard({
   textTop,
   rankTop,
   rankLeft,
-}: RankingCardProps): React.ReactElement {
+}: RankingCardProps): React.ReactElement => {
   return (
     <div
       className="relative overflow-hidden rounded-[20px]"
@@ -160,5 +160,7 @@ export default function RankingCard({
       </div>
     </div>
   );
-}
+};
+
+export default RankingCard;
 

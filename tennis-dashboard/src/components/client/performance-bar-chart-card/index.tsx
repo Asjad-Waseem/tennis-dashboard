@@ -1,14 +1,14 @@
-import PerformanceBarChart from "../performance-bar-chart";
+import PerformanceBarChart from "@/components/client/performance-bar-chart";
 import { colors } from "@/lib/theme";
 import type { Props } from "./types";
 
-export default function PerformanceBarChartCard({
+const PerformanceBarChartCard = ({
   year,
   data,
   onPrevYear,
   onNextYear,
   disableNext,
-}: Props) {
+}: Props) => {
   return (
     <div className="flex h-full min-h-[350px] flex-col rounded-[30px] bg-white p-6">
       {/* Year selector */}
@@ -43,5 +43,7 @@ export default function PerformanceBarChartCard({
       </div>
     </div>
   );
-}
+};
+
+export default PerformanceBarChartCard;
 

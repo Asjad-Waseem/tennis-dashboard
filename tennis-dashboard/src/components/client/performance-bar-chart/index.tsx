@@ -10,7 +10,7 @@ import { colors, gradients } from "@/lib/theme";
 import type { Props } from "./types";
 import { MAX_VALUE } from "./constants";
 
-export default function PerformanceBarChart({ data }: Props) {
+const PerformanceBarChart = ({ data }: Props) => {
   const chartData = data.map((item) => {
     const purple = Math.round(item.value * 0.55);
     const pink = item.value - purple;
@@ -157,5 +157,7 @@ export default function PerformanceBarChart({ data }: Props) {
       </BarChart>
     </ResponsiveContainer>
   );
-}
+};
+
+export default PerformanceBarChart;
 

@@ -9,7 +9,7 @@ import { colors } from "@/lib/theme";
  * - Requires hover state interactivity
  * - Needs client-side event handling
  */
-export default function SocialMediaIcons(): React.ReactElement {
+const SocialMediaIcons = (): React.ReactElement => {
   return (
     <div
       className="absolute flex gap-5"
@@ -89,5 +89,7 @@ export default function SocialMediaIcons(): React.ReactElement {
       </a>
     </div>
   );
-}
+};
+
+export default SocialMediaIcons;
 

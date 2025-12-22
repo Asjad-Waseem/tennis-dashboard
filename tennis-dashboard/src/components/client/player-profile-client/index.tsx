@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePlayer } from "@/contexts/PlayerContext";
 import type { Player } from "@/types";
-import SocialMediaIcons from "../social-media-icons";
-import CountryFlag from "../country-flag";
+import SocialMediaIcons from "@/components/client/social-media-icons";
+import CountryFlag from "@/components/client/country-flag";
 import { colors, gradients } from "@/lib/theme";
 import type { PlayerData } from "./types";
 
-export default function PlayerProfileClient(): React.ReactElement {
+const PlayerProfileClient = (): React.ReactElement => {
   const { selectedPlayerId } = usePlayer();
   const [player, setPlayer] = useState<Player | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -313,5 +313,7 @@ export default function PlayerProfileClient(): React.ReactElement {
       </div>
     </aside>
   );
-}
+};
+
+export default PlayerProfileClient;
 

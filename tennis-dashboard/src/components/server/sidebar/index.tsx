@@ -13,12 +13,12 @@ import type { SidebarProps } from "./types";
  * - No state management or event handlers needed
  * - Better performance and SEO
  */
-export default function Sidebar({
+const Sidebar = ({
   isCollapsed = false,
   onToggle,
   onNavItemClick,
   onUpgradeClick,
-}: SidebarProps): React.ReactElement {
+}: SidebarProps): React.ReactElement => {
   return (
     <aside
       className="relative h-full flex-col"
@@ -191,5 +191,7 @@ export default function Sidebar({
       </div>
     </aside>
   );
-}
+};
+
+export default Sidebar;
 

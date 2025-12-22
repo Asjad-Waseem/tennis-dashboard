@@ -6,7 +6,7 @@ import { usePlayer } from "@/contexts/PlayerContext";
 import { colors } from "@/lib/theme";
 import type { PlayerLatestMatchData } from "./types";
 
-export default function LatestScores(): React.ReactElement {
+const LatestScores = (): React.ReactElement => {
   const { selectedPlayerId } = usePlayer();
   const [activeTab, setActiveTab] = useState<"Singles" | "Doubles" | "Mixed Doubles">("Singles");
   const [latestMatch, setLatestMatch] = useState<Match | null>(null);
@@ -448,5 +448,7 @@ export default function LatestScores(): React.ReactElement {
       )}
     </div>
   );
-}
+};
+
+export default LatestScores;
 

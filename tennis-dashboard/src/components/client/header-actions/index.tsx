@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import SearchDropdown from "../search-dropdown";
-import NotificationsDropdown from "../notifications-dropdown";
-import UserMenu from "../user-menu";
+import SearchDropdown from "@/components/client/search-dropdown";
+import NotificationsDropdown from "@/components/client/notifications-dropdown";
+import UserMenu from "@/components/client/user-menu";
 
-export default function HeaderActions(): React.ReactElement {
+const HeaderActions = (): React.ReactElement => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -401,5 +401,7 @@ export default function HeaderActions(): React.ReactElement {
       </div>
     </div>
   );
-}
+};
+
+export default HeaderActions;
 

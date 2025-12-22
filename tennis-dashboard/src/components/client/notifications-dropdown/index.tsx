@@ -2,7 +2,7 @@
 
 import { colors } from "@/lib/theme";
 
-export default function NotificationsDropdown(): React.ReactElement {
+const NotificationsDropdown = (): React.ReactElement => {
   // For now, showing empty state - can be populated with actual notifications later
   const hasNotifications = false;
 
@@ -96,5 +96,7 @@ export default function NotificationsDropdown(): React.ReactElement {
       </div>
     </div>
   );
-}
+};
+
+export default NotificationsDropdown;
 

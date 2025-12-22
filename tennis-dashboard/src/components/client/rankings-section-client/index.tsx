@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import { usePlayer } from "@/contexts/PlayerContext";
 import type { Ranking } from "@/types";
-import RankingCard from "../../server/cards/ranking-card";
+import RankingCard from "@/components/server/cards/ranking-card";
 import type { PlayerRankingsData } from "./types";
 import { getRankingCardProps } from "./utils";
 
-export default function RankingsSectionClient(): React.ReactElement {
+const RankingsSectionClient = (): React.ReactElement => {
   const { selectedPlayerId } = usePlayer();
   const [rankings, setRankings] = useState<Ranking[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -59,5 +59,7 @@ export default function RankingsSectionClient(): React.ReactElement {
       </div>
     </section>
   );
-}
+};
+
+export default RankingsSectionClient;
 

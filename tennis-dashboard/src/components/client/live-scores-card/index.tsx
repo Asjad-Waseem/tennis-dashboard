@@ -15,7 +15,7 @@ import { colors } from "@/lib/theme";
  * - Handles dynamic data updates
  * - Could be extended with real-time updates via WebSocket
  */
-export default function LiveScoresCard(): React.ReactElement {
+const LiveScoresCard = (): React.ReactElement => {
   const [match, setMatch] = useState<Match | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -211,5 +211,7 @@ export default function LiveScoresCard(): React.ReactElement {
       </button>
     </div>
   );
-}
+};
+
+export default LiveScoresCard;
 

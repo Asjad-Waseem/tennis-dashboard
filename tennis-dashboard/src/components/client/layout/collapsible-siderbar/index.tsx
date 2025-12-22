@@ -13,7 +13,7 @@ import ProSubscriptionModal from "@/components/client/pro-subscription-modal";
  * - Provides smooth animations for sidebar transitions
  * - Manages Pro subscription modal state
  */
-export default function CollapsibleSidebar(): React.ReactElement {
+const CollapsibleSidebar = (): React.ReactElement => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -47,4 +47,6 @@ export default function CollapsibleSidebar(): React.ReactElement {
       />
     </>
   );
-}
+};
+
+export default CollapsibleSidebar;

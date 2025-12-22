@@ -9,12 +9,12 @@ import { getCountryCode } from "./utils";
  *
  * Uses react-country-flag library to display country flags
  */
-export default function CountryFlag({
+const CountryFlag = ({
   country,
   countryCode,
   width = 24,
   height = 24,
-}: CountryFlagProps): React.ReactElement {
+}: CountryFlagProps): React.ReactElement => {
   const code = getCountryCode(country, countryCode);
 
   return (
@@ -28,5 +28,7 @@ export default function CountryFlag({
       title={country}
     />
   );
-}
+};
+
+export default CountryFlag;
 

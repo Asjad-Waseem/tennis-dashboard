@@ -6,12 +6,12 @@ import { colors } from "@/lib/theme";
 import type { NavigationItemClientProps } from "./types";
 import { getIcon } from "./utils";
 
-export default function NavigationItemClient({
+const NavigationItemClient = ({
   item,
   isCollapsed = false,
   additionalStyles,
   onClick,
-}: NavigationItemClientProps): React.ReactElement {
+}: NavigationItemClientProps): React.ReactElement => {
   const isActive = item.isActive ?? false;
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -83,5 +83,7 @@ export default function NavigationItemClient({
       </Link>
     </div>
   );
-}
+};
+
+export default NavigationItemClient;
 

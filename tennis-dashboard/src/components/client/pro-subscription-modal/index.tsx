@@ -5,10 +5,10 @@ import Image from "next/image";
 import { colors } from "@/lib/theme";
 import type { ProSubscriptionModalProps } from "./types";
 
-export default function ProSubscriptionModal({
+const ProSubscriptionModal = ({
   isOpen,
   onClose,
-}: ProSubscriptionModalProps): React.ReactElement {
+}: ProSubscriptionModalProps): React.ReactElement => {
   // Close on Escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -138,5 +138,7 @@ export default function ProSubscriptionModal({
       </div>
     </div>
   );
-}
+};
+
+export default ProSubscriptionModal;
 

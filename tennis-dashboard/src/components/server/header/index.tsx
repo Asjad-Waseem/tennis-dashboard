@@ -8,7 +8,7 @@ import HeaderActions from "@/components/client/header-actions";
  * - Client interactivity handled by HeaderActions component
  * - Better initial load performance
  */
-export default function Header(): React.ReactElement {
+const Header = (): React.ReactElement => {
   return (
     <header className="flex items-center justify-between border-b border-gray-200 bg-[#dbe6fd] px-6 pt-14">
       <div className="flex items-center gap-2 ml-8">
@@ -49,5 +49,7 @@ export default function Header(): React.ReactElement {
       <HeaderActions />
     </header>
   );
-}
+};
+
+export default Header;
 
