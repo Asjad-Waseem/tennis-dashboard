@@ -1,7 +1,7 @@
 // import Image from "next/image";
 // import type { Player } from "@/types";
 // import { dummyPlayer } from "@/lib/constants";
-// import SocialMediaIcons from "@/components/client/SocialMediaIcons";
+// import SocialMediaIcons from "@/components/client/social-media-icons";
 
 // /**
 //  * Server Component: Player Profile Panel
@@ -320,8 +320,8 @@
 import Image from "next/image";
 import type { Player } from "@/types";
 import { dummyPlayer } from "@/lib/constants";
-import SocialMediaIcons from "@/components/client/SocialMediaIcons";
-import CountryFlag from "@/components/client/CountryFlag";
+import SocialMediaIcons from "@/components/client/social-media-icons";
+import CountryFlag from "@/components/client/country-flag";
 import { colors, gradients } from "@/lib/theme";
 
 /**

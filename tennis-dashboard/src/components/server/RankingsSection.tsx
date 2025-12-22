@@ -1,4 +1,4 @@
-import RankingCard from "./cards/RankingCard";
+import RankingCard from "./cards/ranking-card";
 import { colors } from "@/lib/theme";
 
 /**

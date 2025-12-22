@@ -1,9 +1,9 @@
-import DashboardLayout from "@/components/server/DashboardLayout";
-import LiveScoresCard from "@/components/client/LiveScoresCard";
-import StatisticsSectionClient from "@/components/client/StatisticsSectionClient";
-import RankingsSectionClient from "@/components/client/RankingsSectionClient";
-import PlayerProfileClient from "@/components/client/PlayerProfileClient";
-import LatestScores from "@/components/client/LatestScores";
+import DashboardLayout from "@/components/server/dashboard-layout";
+import LiveScoresCard from "@/components/client/live-scores-card";
+import StatisticsSectionClient from "@/components/client/statistics-section-client";
+import RankingsSectionClient from "@/components/client/rankings-section-client";
+import PlayerProfileClient from "@/components/client/player-profile-client";
+import LatestScores from "@/components/client/latest-scores";
 
 /**
  * Main Dashboard Page

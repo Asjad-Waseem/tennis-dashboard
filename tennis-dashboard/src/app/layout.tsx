@@ -1,6 +1,7 @@
+import "@/app/styles/global.css";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import { PlayerProvider } from "@/contexts/PlayerContext";
 
 const geistSans = Geist({
@@ -15,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Tennis Dashboard - Project For Showcase",
-  description: "Professional tennis dashboard with live scores, statistics, and rankings",
+  description:
+    "Professional tennis dashboard with live scores, statistics, and rankings",
   icons: {
     icon: "/company_logo.svg",
     shortcut: "/company_logo.svg",

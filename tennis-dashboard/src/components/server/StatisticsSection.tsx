@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { dummyStatisticsByYear } from "@/lib/constants";
-import PerformanceBarChartCard from "@/components/client/PerformanceBarChartCard";
-import GlobalStatsDonutChart from "@/components/client/GlobalStatsDonutChart";
+import PerformanceBarChartCard from "@/components/client/performance-bar-chart-card";
+import GlobalStatsDonutChart from "@/components/client/global-stats-donut-chart";
 
 export default function StatisticsSection(): React.ReactElement {
   const CURRENT_YEAR = 2025;
