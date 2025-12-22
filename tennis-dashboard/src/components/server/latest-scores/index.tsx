@@ -1,4 +1,4 @@
-import LatestScoresClient from "@/components/client/LatestScores";
+import LatestScoresClient from "@/components/client/latest-scores";
 
 const LatestScores = (): React.ReactElement => {
 

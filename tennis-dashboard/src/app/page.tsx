@@ -1,9 +1,11 @@
-import DashboardLayout from "@/components/server/DashboardLayout";
-import LiveScoresCard from "@/components/client/LiveScoresCard";
-import StatisticsSectionClient from "@/components/client/StatisticsSectionClient";
-import RankingsSectionClient from "@/components/client/RankingsSectionClient";
-import PlayerProfileClient from "@/components/client/PlayerProfileClient";
-import LatestScores from "@/components/client/LatestScores";
+import { ReactElement } from "react";
+
+import DashboardLayout from "@/components/server/dashboard-layout";
+import LiveScoresCard from "@/components/client/live-scores-card";
+import StatisticsSectionClient from "@/components/client/statistics-section-client";
+import RankingsSectionClient from "@/components/client/rankings-section-client";
+import PlayerProfileClient from "@/components/client/player-profile-client";
+import LatestScores from "@/components/client/latest-scores";
 
 /**
  * Main Dashboard Page
@@ -12,7 +14,7 @@ import LatestScores from "@/components/client/LatestScores";
  * - Server Components: Layout, Statistics, Rankings, Player Profile
  * - Client Components: Live Scores (needs API fetch)
  */
-export default function DashboardPage(): React.ReactElement {
+const DashboardPage = (): ReactElement => {
   return (
     <DashboardLayout>
       <div className="flex gap-6">
@@ -40,4 +42,6 @@ export default function DashboardPage(): React.ReactElement {
       </div>
     </DashboardLayout>
   );
-}
+};
+
+export default DashboardPage;
