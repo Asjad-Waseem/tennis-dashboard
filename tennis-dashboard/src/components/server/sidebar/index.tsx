@@ -26,12 +26,12 @@ const Sidebar = ({
         isCollapsed ? "w-20" : "w-[280px] sm:w-[300px]"
       )}
     >
-      {/* Close Button for Mobile */}
+      {/* Close Button for Mobile/Tablet/Small Desktop */}
       {onToggle && (
         <button
           type="button"
           onClick={onToggle}
-          className="lg:hidden absolute top-4 right-4 z-50 p-2 rounded-md hover:bg-gray-100/50 transition-colors"
+          className="xl:hidden absolute top-4 right-4 z-50 p-2 rounded-md hover:bg-gray-100/50 transition-colors"
           aria-label="Close menu"
         >
           <svg

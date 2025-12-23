@@ -66,7 +66,7 @@ const LiveScoresCard = (): ReactElement => {
   return (
     <div className="relative h-auto min-h-[180px] w-full rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-5">
       {/* Header Row - Title and Date on Same Line */}
-      <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+      <div className="mb-4 sm:mb-6 flex items-center justify-between gap-2">
         <h2 className="text-lg sm:text-xl font-bold leading-5 sm:leading-6 tracking-wide text-slate-700">
           Your Next Match
         </h2>
@@ -150,16 +150,16 @@ const LiveScoresCard = (): ReactElement => {
         {/* Mobile Layout: Vertical Stack with Colon Separator */}
         <div className="flex flex-col sm:hidden items-center gap-2 w-full">
           {/* Player 1 - Naomi O. */}
-          <div className="flex items-center gap-3 justify-center w-full">
+          <div className="grid grid-cols-[1fr_auto] items-start gap-3 w-full">
             <button
               type="button"
               onClick={() => setSelectedPlayerId(match.player2.id)}
-              className="group flex cursor-pointer flex-col items-center rounded-lg p-2 transition-all hover:bg-gray-50"
+              className="group flex cursor-pointer flex-col items-start rounded-lg p-2 transition-all hover:bg-gray-50 min-w-0"
             >
               <p className="text-lg font-bold leading-tight tracking-wide text-gray-900">
                 {match.player2.shortName}
               </p>
-              <p className="mt-1 text-[10px] font-light leading-3 tracking-wide text-[#BACCFD]">
+              <p className="mt-1 text-left text-[10px] font-light leading-3 tracking-wide text-[#BACCFD]">
                 {match.player2.country}
               </p>
             </button>
@@ -180,20 +180,20 @@ const LiveScoresCard = (): ReactElement => {
 
           {/* Colon Separator */}
           <div className="flex items-center justify-center">
-            <span className="text-2xl font-bold text-gray-400">:</span>
+            <span className="text-2xl font-bold text-blue-600">:</span>
           </div>
 
           {/* Player 2 - Anindita R. */}
-          <div className="flex items-center gap-3 justify-center w-full">
+          <div className="grid grid-cols-[1fr_auto] items-start gap-3 w-full">
             <button
               type="button"
               onClick={() => setSelectedPlayerId(match.player1.id)}
-              className="group flex cursor-pointer flex-col items-center rounded-lg p-2 transition-all hover:bg-gray-50"
+              className="group flex cursor-pointer flex-col items-start rounded-lg p-2 transition-all hover:bg-gray-50 min-w-0"
             >
               <p className="text-lg font-bold leading-tight tracking-wide text-gray-900">
                 {match.player1.shortName}
               </p>
-              <p className="mt-1 text-[10px] font-light leading-3 tracking-wide text-[#BACCFD]">
+              <p className="mt-1 text-left text-[10px] font-light leading-3 tracking-wide text-[#BACCFD]">
                 {match.player1.country}
               </p>
             </button>
@@ -220,9 +220,9 @@ const LiveScoresCard = (): ReactElement => {
             <button
               type="button"
               onClick={() => setSelectedPlayerId(match.player2.id)}
-              className="group flex cursor-pointer flex-col rounded-lg p-1.5 sm:p-2 transition-all hover:bg-gray-50 min-w-0"
+              className="group flex cursor-pointer flex-col rounded-lg p-1.5 sm:p-2 xl:pl-8 transition-all hover:bg-gray-50 min-w-0"
             >
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-tight sm:leading-[24px] md:leading-[28px] lg:leading-[30px] tracking-wide text-gray-900 truncate">
+              <p className="text-base sm:text-base md:text-sm lg:text-lg xl:text-2xl font-bold leading-tight sm:leading-5 md:leading-5 lg:leading-5 xl:leading-[30px] tracking-wide text-gray-900 truncate">
                 {match.player2.shortName}
               </p>
               <p className="mt-0.5 sm:mt-1 text-left text-[10px] sm:text-xs font-light leading-[10px] sm:leading-3 tracking-wide text-[#BACCFD] truncate">
@@ -270,9 +270,9 @@ const LiveScoresCard = (): ReactElement => {
             <button
               type="button"
               onClick={() => setSelectedPlayerId(match.player1.id)}
-              className="group flex cursor-pointer flex-col items-start rounded-lg p-1.5 sm:p-2 transition-all hover:bg-gray-50 min-w-0"
+              className="group flex cursor-pointer flex-col items-start rounded-lg p-1.5 sm:p-2 xl:pr-8 transition-all hover:bg-gray-50 min-w-0"
             >
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-tight sm:leading-[24px] md:leading-[28px] lg:leading-[30px] tracking-wide text-gray-900 truncate">
+              <p className="text-base sm:text-base md:text-sm lg:text-lg xl:text-2xl font-bold leading-tight sm:leading-5 md:leading-5 lg:leading-5 xl:leading-[30px] tracking-wide text-gray-900 truncate">
                 {match.player1.shortName}
               </p>
               <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs font-light leading-[10px] sm:leading-3 tracking-wide text-[#BACCFD] truncate">

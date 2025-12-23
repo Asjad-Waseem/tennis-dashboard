@@ -6,61 +6,38 @@ const SearchDropdown = (): React.ReactElement => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  const [topPosition, setTopPosition] = useState(80);
-  const [rightPosition, setRightPosition] = useState(0);
-  const [leftPosition, setLeftPosition] = useState<string | undefined>(undefined);
-  const [width, setWidth] = useState<string>("min(40vw, 500px)");
+  const [isMobile, setIsMobile] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Calculate header height and search icon position
+  // Calculate if mobile and set CSS variables for positioning
   useEffect(() => {
-    const header = document.querySelector("header");
-    const searchButton = document.querySelector('[aria-label="Search"]');
-    
-    if (header && searchButton) {
-      const headerRect = header.getBoundingClientRect();
-      const searchRect = searchButton.getBoundingClientRect();
-      const isMobile = window.innerWidth < 640; // sm breakpoint
+    const checkMobile = (): void => {
+      const mobile = window.innerWidth < 640; // sm breakpoint
+      setIsMobile(mobile);
       
-      setTopPosition(headerRect.bottom + 8);
-      // On mobile: full width with padding, on desktop: align with search icon
-      if (isMobile) {
-        setLeftPosition("16px");
-        setRightPosition(16);
-        setWidth("calc(100% - 32px)");
-      } else {
-        setLeftPosition(undefined);
-        setRightPosition(window.innerWidth - searchRect.right);
-        setWidth("min(40vw, 500px)");
-      }
-    }
-
-    // Handle resize
-    const handleResize = (): void => {
       const header = document.querySelector("header");
       const searchButton = document.querySelector('[aria-label="Search"]');
       
-      if (header && searchButton) {
+      if (header && searchButton && containerRef.current) {
         const headerRect = header.getBoundingClientRect();
         const searchRect = searchButton.getBoundingClientRect();
-        const isMobile = window.innerWidth < 640;
         
-        setTopPosition(headerRect.bottom + 8);
-        if (isMobile) {
-          setLeftPosition("16px");
-          setRightPosition(16);
-          setWidth("calc(100% - 32px)");
+        if (mobile) {
+          containerRef.current.style.setProperty("--top-pos", `${headerRect.bottom + 8}px`);
+          containerRef.current.style.setProperty("--left-pos", "1rem");
+          containerRef.current.style.setProperty("--right-pos", "1rem");
         } else {
-          setLeftPosition(undefined);
-          setRightPosition(window.innerWidth - searchRect.right);
-          setWidth("min(40vw, 500px)");
+          containerRef.current.style.setProperty("--top-pos", `${headerRect.bottom + 8}px`);
+          containerRef.current.style.setProperty("--right-pos", `${window.innerWidth - searchRect.right}px`);
+          containerRef.current.style.setProperty("--left-pos", "auto");
         }
       }
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   // Auto-focus input when dropdown opens
@@ -93,13 +70,11 @@ const SearchDropdown = (): React.ReactElement => {
   return (
     <div
       ref={containerRef}
-      className="fixed z-50 rounded-[20px] bg-white shadow-[0px_20px_50px_rgba(102,30,255,0.15)] sm:min-w-[300px] sm:max-w-[90vw]"
-      style={{
-        top: `${topPosition}px`,
-        right: `${rightPosition}px`,
-        left: leftPosition,
-        width: width,
-      }}
+      className={`fixed z-50 rounded-[20px] bg-white shadow-[0px_20px_50px_rgba(102,30,255,0.15)] top-[var(--top-pos)] ${
+        isMobile 
+          ? "left-4 right-4 w-auto" 
+          : "right-[var(--right-pos)] w-[min(40vw,500px)]"
+      }`}
     >
       {/* Search Input */}
       <div className="px-6 py-4">

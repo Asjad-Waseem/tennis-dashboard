@@ -42,24 +42,24 @@ const GlobalStatisticChart = ({ stats }: Props) => {
     const segmentName = data.payload?.name || data.name || "";
 
     let displayName = "";
-    let colorIndicator = "";
+    let colorClass = "";
     let actualValue = 0;
 
     if (segmentName === "Purple") {
       displayName = "Purple";
-      colorIndicator = gradients.chartPurple;
+      colorClass = "bg-gradient-to-br from-[#CE9FFC] to-[#7367F0]";
       actualValue = Math.round(stats.wins * 0.4);
     } else if (segmentName === "Red") {
       displayName = "Red";
-      colorIndicator = gradients.yellow;
+      colorClass = "bg-gradient-to-br from-[#FFF6B7] to-[#F6416C]";
       actualValue = Math.round(stats.wins * 0.3);
     } else if (segmentName === "Yellow") {
       displayName = "Yellow";
-      colorIndicator = gradients.yellow2;
+      colorClass = "bg-gradient-to-br from-[#FFE985] to-[#FA742B]";
       actualValue = Math.round(stats.wins * 0.3);
     } else if (segmentName === "Losses") {
       displayName = "Losses";
-      colorIndicator = colors.primary.blueBackgroundLightest;
+      colorClass = "bg-[#EEF2FF]";
       actualValue = stats.losses;
     }
 
@@ -72,10 +72,7 @@ const GlobalStatisticChart = ({ stats }: Props) => {
         <div className="space-y-2">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <div
-                className="h-3 w-3 rounded"
-                style={{ background: colorIndicator }}
-              />
+              <div className={`h-3 w-3 rounded ${colorClass}`} />
               <span className="text-sm font-medium text-gray-700">
                 {segmentName === "Losses" ? "Losses" : "Wins"}
               </span>
@@ -202,18 +199,9 @@ const GlobalStatisticChart = ({ stats }: Props) => {
 
       {/* ================= Legend ================= */}
       <div className="flex justify-center gap-3 sm:gap-4 mt-2 sm:mt-3">
-        <span
-          className="h-2.5 w-2.5 rounded"
-          style={{ background: gradients.chartPurple }}
-        />
-        <span
-          className="h-2.5 w-2.5 rounded"
-          style={{ background: gradients.yellow }}
-        />
-        <span
-          className="h-2.5 w-2.5 rounded"
-          style={{ background: gradients.yellow2 }}
-        />
+        <span className="h-2.5 w-2.5 rounded bg-gradient-to-br from-[#CE9FFC] to-[#7367F0]" />
+        <span className="h-2.5 w-2.5 rounded bg-gradient-to-br from-[#FFF6B7] to-[#F6416C]" />
+        <span className="h-2.5 w-2.5 rounded bg-gradient-to-br from-[#FFE985] to-[#FA742B]" />
       </div>
     </div>
   );

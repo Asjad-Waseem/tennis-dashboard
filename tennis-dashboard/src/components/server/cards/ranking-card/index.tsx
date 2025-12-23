@@ -24,8 +24,9 @@ const RankingCard = ({
     <div
       className="relative h-[100px] w-full overflow-hidden rounded-[20px]"
       style={{
-        backgroundColor: bgColor,
-      }}
+        "--bg-color": bgColor,
+        backgroundColor: "var(--bg-color)",
+      } as React.CSSProperties & { "--bg-color": string }}
     >
       {/* Mask group container */}
       <div className="absolute inset-0">
