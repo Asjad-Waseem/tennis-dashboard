@@ -17,11 +17,11 @@ import LatestScores from "@/components/client/latest-scores";
 const DashboardPage = (): ReactElement => {
   return (
     <DashboardLayout>
-      <div className="flex gap-6">
+      <div className="flex flex-col gap-4 lg:flex-row lg:gap-6">
         {/* Main Content Area */}
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           {/* Live Scores Section */}
-          <div className="mb-8">
+          <div className="mb-6 lg:mb-8">
             <LiveScoresCard />
           </div>
 
@@ -33,9 +33,9 @@ const DashboardPage = (): ReactElement => {
         </div>
 
         {/* Right Sidebar - Player Profile */}
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-4 lg:gap-6 lg:min-w-0">
           <PlayerProfileClient />
-          <div className="mt-auto">
+          <div className="lg:mt-auto">
             <LatestScores />
           </div>
         </div>

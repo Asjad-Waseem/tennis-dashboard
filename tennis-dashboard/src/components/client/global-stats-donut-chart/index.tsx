@@ -1,6 +1,6 @@
 "use client";
 
-import { Cell, Pie, PieChart, Tooltip } from "recharts";
+import { Cell, Pie, PieChart, Tooltip, ResponsiveContainer } from "recharts";
 import { colors, gradients } from "@/lib/theme";
 import type { Props } from "./types";
 
@@ -99,12 +99,15 @@ const GlobalStatisticChart = ({ stats }: Props) => {
   };
 
   return (
-    <div>
-      <h2 className="text-xl text-center font-medium leading-6 tracking-wide text-gray-900">
+    <div className="w-full">
+      <h2 className="text-base sm:text-lg md:text-xl text-center font-medium leading-5 sm:leading-6 tracking-wide text-gray-900 mb-2 sm:mb-4">
         Global Statistic
       </h2>
 
-      <PieChart width={300} height={300}>
+      <div className="w-full flex justify-center overflow-hidden px-2 sm:px-0">
+        <div className="w-full max-w-[180px] h-[180px] sm:max-w-[250px] sm:h-[250px] md:max-w-[280px] md:h-[280px] lg:max-w-[300px] lg:h-[300px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
         {/* ================= Gradients ================= */}
         <defs>
           <linearGradient id="winsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -144,8 +147,8 @@ const GlobalStatisticChart = ({ stats }: Props) => {
           dataKey="value"
           cx="50%"
           cy="50%"
-          innerRadius={70}
-          outerRadius={100}
+          innerRadius="60%"
+          outerRadius="85%"
           startAngle={90}
           endAngle={-270}
           isAnimationActive={false}
@@ -159,8 +162,8 @@ const GlobalStatisticChart = ({ stats }: Props) => {
           dataKey="value"
           cx="50%"
           cy="50%"
-          innerRadius={60}
-          outerRadius={110}
+          innerRadius="52%"
+          outerRadius="92%"
           startAngle={startAngle}
           endAngle={endAngle}
           isAnimationActive={false}
@@ -177,7 +180,7 @@ const GlobalStatisticChart = ({ stats }: Props) => {
           textAnchor="middle"
           dominantBaseline="middle"
           fill={colors.text.primary}
-          className="text-xl font-semibold"
+          className="text-base sm:text-lg md:text-xl font-semibold"
         >
           {stats.wins} Wins
         </text>
@@ -188,13 +191,17 @@ const GlobalStatisticChart = ({ stats }: Props) => {
           textAnchor="middle"
           dominantBaseline="middle"
           fill={colors.primary.blueLight}
+          className="text-sm sm:text-base"
         >
           ({stats.winPercentage}%)
         </text>
       </PieChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
 
       {/* ================= Legend ================= */}
-      <div className="flex justify-center gap-4">
+      <div className="flex justify-center gap-3 sm:gap-4 mt-2 sm:mt-3">
         <span
           className="h-2.5 w-2.5 rounded"
           style={{ background: gradients.chartPurple }}

@@ -52,11 +52,11 @@ const StatisticsSectionClient = (): React.ReactElement => {
 
   if (isLoading || availableYears.length === 0) {
     return (
-      <section className="mb-8">
-        <h2 className="mb-4 text-lg font-semibold text-gray-900">Statistic</h2>
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="h-[350px] rounded-3xl bg-white animate-pulse" />
-          <div className="h-[350px] rounded-3xl bg-white animate-pulse" />
+      <section className="mb-6 sm:mb-8">
+        <h2 className="mb-3 sm:mb-4 text-base sm:text-lg font-semibold text-gray-900">Statistic</h2>
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
+          <div className="h-[280px] sm:h-[320px] md:h-[350px] rounded-2xl sm:rounded-3xl bg-white animate-pulse" />
+          <div className="h-[280px] sm:h-[320px] md:h-[350px] rounded-2xl sm:rounded-3xl bg-white animate-pulse" />
         </div>
       </section>
     );
@@ -66,9 +66,9 @@ const StatisticsSectionClient = (): React.ReactElement => {
 
   if (!stats) {
     return (
-      <section className="mb-8">
-        <h2 className="mb-4 text-lg font-semibold text-gray-900">Statistic</h2>
-        <p className="text-gray-500">
+      <section className="mb-6 sm:mb-8">
+        <h2 className="mb-3 sm:mb-4 text-base sm:text-lg font-semibold text-gray-900">Statistic</h2>
+        <p className="text-sm sm:text-base text-gray-500">
           No statistics available for this player.
         </p>
       </section>
@@ -76,10 +76,10 @@ const StatisticsSectionClient = (): React.ReactElement => {
   }
 
   return (
-    <section className="mb-8">
-      <h2 className="mb-4 text-lg font-semibold text-gray-900">Statistic</h2>
+    <section className="mb-6 sm:mb-8">
+      <h2 className="mb-3 sm:mb-4 text-base sm:text-lg font-semibold text-gray-900">Statistic</h2>
 
-      <div className="grid gap-6 md:grid-cols-2 overflow-visible">
+      <div className="grid gap-4 sm:gap-6 md:grid-cols-2 overflow-visible">
         {/* Performance */}
         <PerformanceBarChartCard
           year={year}
@@ -97,7 +97,7 @@ const StatisticsSectionClient = (): React.ReactElement => {
         />
 
         {/* Global Statistic */}
-        <div className="flex h-full min-h-[350px] flex-col rounded-3xl bg-white p-6 overflow-visible">
+        <div className="flex h-full min-h-[280px] sm:min-h-[320px] md:min-h-[350px] flex-col rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-5 md:p-6 overflow-visible">
           <div className="flex flex-1 items-center justify-center overflow-visible">
             <GlobalStatsDonutChart stats={stats.globalStats} />
           </div>

@@ -11,11 +11,11 @@ import { colors } from "@/lib/theme";
  */
 const SocialMediaIcons = (): React.ReactElement => {
   return (
-    <div className="absolute left-[27px] top-[232px] flex h-5 w-[45px] gap-5">
+    <div className="absolute left-4 sm:left-5 lg:left-[27px] top-[175px] sm:top-[195px] md:top-[210px] lg:top-[232px] flex h-4 w-auto sm:h-5 sm:w-[45px] gap-3 sm:gap-4 lg:gap-5 items-center">
       {/* Twitter Icon */}
       <a
         href="#"
-        className="flex-none h-5 w-5 transition-all duration-200 hover:scale-110"
+        className="flex-none h-4 w-4 sm:h-5 sm:w-5 transition-all duration-200 hover:scale-110"
         aria-label="Twitter"
         onMouseEnter={(e) => {
           const svg = e.currentTarget.querySelector("svg");
@@ -46,7 +46,7 @@ const SocialMediaIcons = (): React.ReactElement => {
       {/* Facebook Icon */}
       <a
         href="#"
-        className="flex-none h-5 w-5 transition-all duration-200 hover:scale-110"
+        className="flex-none h-4 w-4 sm:h-5 sm:w-5 transition-all duration-200 hover:scale-110"
         aria-label="Facebook"
         onMouseEnter={(e) => {
           const svg = e.currentTarget.querySelector("svg");

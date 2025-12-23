@@ -18,3 +18,4 @@ export interface RankingCardProps {
   rankLeft: string;
 }
 
+

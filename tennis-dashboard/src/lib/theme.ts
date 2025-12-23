@@ -128,3 +128,4 @@ export const gradients = {
   chartBlue: getGradient(colors.chart.blueGradient.start, colors.chart.blueGradient.end),
 } as const;
 
+

@@ -35,10 +35,10 @@ const RankingsSectionClient = (): React.ReactElement => {
   if (isLoading) {
     return (
       <section>
-        <h2 className="mb-4 text-lg font-semibold text-gray-900">Rankings</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 className="mb-3 sm:mb-4 text-base sm:text-lg font-semibold text-gray-900">Rankings</h2>
+        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-24 rounded-3xl bg-white animate-pulse" />
+            <div key={i} className="h-20 sm:h-24 rounded-2xl sm:rounded-3xl bg-white animate-pulse" />
           ))}
         </div>
       </section>
@@ -46,10 +46,10 @@ const RankingsSectionClient = (): React.ReactElement => {
   }
 
   return (
-    <section>
-      <h2 className="mb-4 text-lg font-semibold text-gray-900">Rankings</h2>
+    <section className="mt-6 sm:mt-8">
+      <h2 className="mb-3 sm:mb-4 text-base sm:text-lg font-semibold text-gray-900">Rankings</h2>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {["Singles", "Doubles", "Mixed Doubles"].map((category) => {
           const ranking = rankings.find((r) => r.category === category);
           const props = getRankingCardProps(category, ranking);

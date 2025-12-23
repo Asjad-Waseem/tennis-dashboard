@@ -8,6 +8,8 @@ const SearchDropdown = (): React.ReactElement => {
   const [showResults, setShowResults] = useState(false);
   const [topPosition, setTopPosition] = useState(80);
   const [rightPosition, setRightPosition] = useState(0);
+  const [leftPosition, setLeftPosition] = useState<string | undefined>(undefined);
+  const [width, setWidth] = useState<string>("min(40vw, 500px)");
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -19,11 +21,46 @@ const SearchDropdown = (): React.ReactElement => {
     if (header && searchButton) {
       const headerRect = header.getBoundingClientRect();
       const searchRect = searchButton.getBoundingClientRect();
+      const isMobile = window.innerWidth < 640; // sm breakpoint
       
       setTopPosition(headerRect.bottom + 8);
-      // Position from right edge, aligned with search icon
-      setRightPosition(window.innerWidth - searchRect.right);
+      // On mobile: full width with padding, on desktop: align with search icon
+      if (isMobile) {
+        setLeftPosition("16px");
+        setRightPosition(16);
+        setWidth("calc(100% - 32px)");
+      } else {
+        setLeftPosition(undefined);
+        setRightPosition(window.innerWidth - searchRect.right);
+        setWidth("min(40vw, 500px)");
+      }
     }
+
+    // Handle resize
+    const handleResize = (): void => {
+      const header = document.querySelector("header");
+      const searchButton = document.querySelector('[aria-label="Search"]');
+      
+      if (header && searchButton) {
+        const headerRect = header.getBoundingClientRect();
+        const searchRect = searchButton.getBoundingClientRect();
+        const isMobile = window.innerWidth < 640;
+        
+        setTopPosition(headerRect.bottom + 8);
+        if (isMobile) {
+          setLeftPosition("16px");
+          setRightPosition(16);
+          setWidth("calc(100% - 32px)");
+        } else {
+          setLeftPosition(undefined);
+          setRightPosition(window.innerWidth - searchRect.right);
+          setWidth("min(40vw, 500px)");
+        }
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Auto-focus input when dropdown opens
@@ -56,11 +93,12 @@ const SearchDropdown = (): React.ReactElement => {
   return (
     <div
       ref={containerRef}
-      className="fixed z-50 min-w-[300px] max-w-[90vw] rounded-[20px] bg-white shadow-[0px_20px_50px_rgba(102,30,255,0.15)]"
+      className="fixed z-50 rounded-[20px] bg-white shadow-[0px_20px_50px_rgba(102,30,255,0.15)] sm:min-w-[300px] sm:max-w-[90vw]"
       style={{
         top: `${topPosition}px`,
         right: `${rightPosition}px`,
-        width: "min(40vw, 500px)",
+        left: leftPosition,
+        width: width,
       }}
     >
       {/* Search Input */}

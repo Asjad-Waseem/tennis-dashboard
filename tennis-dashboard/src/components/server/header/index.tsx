@@ -10,14 +10,15 @@ import HeaderActions from "@/components/client/header-actions";
  */
 const Header = (): React.ReactElement => {
   return (
-    <header className="flex items-center justify-between border-b border-gray-200 bg-[#dbe6fd] px-6 pt-14">
-      <div className="flex items-center gap-2 ml-8">
+    <header className="flex items-center justify-between border-b border-gray-200 bg-[#dbe6fd] px-4 pt-8 sm:px-6 sm:pt-10 md:pt-12 lg:px-6 lg:pt-14">
+      <div className="flex items-center gap-2 sm:ml-4 lg:ml-8">
         <svg
           width="30"
           height="30"
           viewBox="0 0 30 30"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 sm:h-7 sm:w-7 lg:h-[30px] lg:w-[30px]"
         >
           <path
             fillRule="evenodd"
@@ -27,7 +28,7 @@ const Header = (): React.ReactElement => {
           />
         </svg>
 
-        <h1 className="h-9 w-[162px] whitespace-nowrap text-3xl font-semibold leading-9 tracking-[1px] text-[#3C3F88]">
+        <h1 className="h-auto whitespace-nowrap text-xl font-semibold leading-tight tracking-[1px] text-[#3C3F88] sm:text-2xl md:text-3xl lg:h-9 lg:w-[162px] lg:leading-9">
           Live Scores
         </h1>
       </div>

@@ -44,10 +44,10 @@ const LiveScoresCard = (): ReactElement => {
 
   if (isLoading) {
     return (
-      <div className="relative h-50 w-full rounded-3xl bg-white">
-        <div className="animate-pulse p-5">
-          <div className="h-6 w-32 bg-gray-200 rounded mb-4" />
-          <div className="h-20 bg-gray-200 rounded" />
+      <div className="relative h-auto min-h-[180px] w-full rounded-2xl sm:rounded-3xl bg-white">
+        <div className="animate-pulse p-4 sm:p-5">
+          <div className="h-5 sm:h-6 w-32 bg-gray-200 rounded mb-4" />
+          <div className="h-16 sm:h-20 bg-gray-200 rounded" />
         </div>
       </div>
     );
@@ -55,8 +55,8 @@ const LiveScoresCard = (): ReactElement => {
 
   if (error || !match) {
     return (
-      <div className="relative h-50 w-full rounded-3xl bg-white p-5">
-        <p className="text-sm text-red-600">
+      <div className="relative h-auto min-h-[180px] w-full rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-5">
+        <p className="text-xs sm:text-sm text-red-600">
           {error || "Failed to load live scores"}
         </p>
       </div>
@@ -64,14 +64,14 @@ const LiveScoresCard = (): ReactElement => {
   }
 
   return (
-    <div className="relative h-50 w-full rounded-3xl bg-white p-5">
+    <div className="relative h-auto min-h-[180px] w-full rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-5">
       {/* Header Row - Title and Date on Same Line */}
-      <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-xl font-bold leading-6 tracking-wide text-slate-700">
+      <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+        <h2 className="text-lg sm:text-xl font-bold leading-5 sm:leading-6 tracking-wide text-slate-700">
           Your Next Match
         </h2>
-        <div className="flex items-center gap-2.5">
-          <span className="text-xs leading-[15px] tracking-wide text-[#BACCFD]">
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] sm:text-xs leading-[12px] sm:leading-[15px] tracking-wide text-[#BACCFD]">
             {match.date}
           </span>
           <svg
@@ -145,72 +145,141 @@ const LiveScoresCard = (): ReactElement => {
         </div>
       </div>
 
-      {/* Main Content Area - Responsive Flexbox Layout */}
-      <div className="relative flex items-center justify-between gap-4 ml-13">
-        {/* Player 1 - Naomi O. (Left Side) */}
-        <div className="flex flex-1 items-center gap-4">
-          <button
-            type="button"
-            onClick={() => setSelectedPlayerId(match.player2.id)}
-            className="group flex cursor-pointer flex-col rounded-lg p-2 transition-all hover:bg-gray-50"
-          >
-            <p className="text-2xl font-bold leading-[30px] tracking-wide text-gray-900">
-              {match.player2.shortName}
-            </p>
-            <p className="mt-1 text-left text-xs font-light leading-3 tracking-wide text-[#BACCFD]">
-              {match.player2.country}
-            </p>
-          </button>
-          <button
-            type="button"
-            onClick={() => setSelectedPlayerId(match.player2.id)}
-            className="relative h-[100px] w-[85px] shrink-0 cursor-pointer transition-opacity hover:opacity-80"
-          >
-            <Image
-              src={match.player2.avatar}
-              alt={match.player2.name}
-              width={85}
-              height={100}
-              className="h-full w-full object-contain"
-            />
-          </button>
-        </div>
+      {/* Main Content Area - Responsive Layout: Vertical stack on mobile, horizontal on tablet+ */}
+      <div className="relative flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-2 md:gap-3 lg:gap-4">
+        {/* Mobile Layout: Vertical Stack with Colon Separator */}
+        <div className="flex flex-col sm:hidden items-center gap-2 w-full">
+          {/* Player 1 - Naomi O. */}
+          <div className="flex items-center gap-3 justify-center w-full">
+            <button
+              type="button"
+              onClick={() => setSelectedPlayerId(match.player2.id)}
+              className="group flex cursor-pointer flex-col items-center rounded-lg p-2 transition-all hover:bg-gray-50"
+            >
+              <p className="text-lg font-bold leading-tight tracking-wide text-gray-900">
+                {match.player2.shortName}
+              </p>
+              <p className="mt-1 text-[10px] font-light leading-3 tracking-wide text-[#BACCFD]">
+                {match.player2.country}
+              </p>
+            </button>
+            <button
+              type="button"
+              onClick={() => setSelectedPlayerId(match.player2.id)}
+              className="relative h-[60px] w-[50px] shrink-0 cursor-pointer transition-opacity hover:opacity-80"
+            >
+              <Image
+                src={match.player2.avatar}
+                alt={match.player2.name}
+                width={85}
+                height={100}
+                className="h-full w-full object-contain"
+              />
+            </button>
+          </div>
 
-        {/* Separator - Two Blue Dots - Centered */}
-        <div className="relative flex h-[35px] w-[35px] shrink-0 items-center justify-center">
-          <div className="absolute flex flex-col gap-1">
-            <div className="h-1.5 w-1.5 rounded-full bg-blue-600" />
-            <div className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+          {/* Colon Separator */}
+          <div className="flex items-center justify-center">
+            <span className="text-2xl font-bold text-gray-400">:</span>
+          </div>
+
+          {/* Player 2 - Anindita R. */}
+          <div className="flex items-center gap-3 justify-center w-full">
+            <button
+              type="button"
+              onClick={() => setSelectedPlayerId(match.player1.id)}
+              className="group flex cursor-pointer flex-col items-center rounded-lg p-2 transition-all hover:bg-gray-50"
+            >
+              <p className="text-lg font-bold leading-tight tracking-wide text-gray-900">
+                {match.player1.shortName}
+              </p>
+              <p className="mt-1 text-[10px] font-light leading-3 tracking-wide text-[#BACCFD]">
+                {match.player1.country}
+              </p>
+            </button>
+            <button
+              type="button"
+              onClick={() => setSelectedPlayerId(match.player1.id)}
+              className="relative h-[60px] w-[50px] shrink-0 cursor-pointer transition-opacity hover:opacity-80"
+            >
+              <Image
+                src={match.player1.avatar}
+                alt={match.player1.name}
+                width={85}
+                height={100}
+                className="h-full w-full object-contain"
+              />
+            </button>
           </div>
         </div>
 
-        {/* Player 2 - Anindita R. (Right Side) */}
-        <div className="flex flex-1 items-center justify-end gap-4 mr-13">
-          <button
-            type="button"
-            onClick={() => setSelectedPlayerId(match.player1.id)}
-            className="relative h-[100px] w-[85px] shrink-0 cursor-pointer transition-opacity hover:opacity-80"
-          >
-            <Image
-              src={match.player1.avatar}
-              alt={match.player1.name}
-              width={85}
-              height={100}
-              className="h-full w-full object-contain"
-            />
-          </button>
-          <button
-            type="button"
-            onClick={() => setSelectedPlayerId(match.player1.id)}
-            className="group flex cursor-pointer flex-col items-start rounded-lg p-2 transition-all hover:bg-gray-50"
-          >
-            <p className="text-2xl font-bold leading-[30px] tracking-wide text-gray-900">
-              {match.player1.shortName}
-            </p>
-            <p className="mt-1 text-xs font-light leading-3 tracking-wide text-[#BACCFD]">
-              {match.player1.country}
-            </p>
-          </button>
+        {/* Desktop/Tablet Layout: Horizontal */}
+        <div className="hidden sm:flex items-center justify-between gap-2 md:gap-3 lg:gap-4 w-full">
+          {/* Player 1 - Naomi O. (Left Side) */}
+          <div className="flex flex-1 items-center gap-2 md:gap-3 lg:gap-4 min-w-0">
+            <button
+              type="button"
+              onClick={() => setSelectedPlayerId(match.player2.id)}
+              className="group flex cursor-pointer flex-col rounded-lg p-1.5 sm:p-2 transition-all hover:bg-gray-50 min-w-0"
+            >
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-tight sm:leading-[24px] md:leading-[28px] lg:leading-[30px] tracking-wide text-gray-900 truncate">
+                {match.player2.shortName}
+              </p>
+              <p className="mt-0.5 sm:mt-1 text-left text-[10px] sm:text-xs font-light leading-[10px] sm:leading-3 tracking-wide text-[#BACCFD] truncate">
+                {match.player2.country}
+              </p>
+            </button>
+            <button
+              type="button"
+              onClick={() => setSelectedPlayerId(match.player2.id)}
+              className="relative h-[60px] w-[50px] sm:h-[80px] sm:w-[70px] md:h-[90px] md:w-[80px] lg:h-[100px] lg:w-[85px] shrink-0 cursor-pointer transition-opacity hover:opacity-80"
+            >
+              <Image
+                src={match.player2.avatar}
+                alt={match.player2.name}
+                width={85}
+                height={100}
+                className="h-full w-full object-contain"
+              />
+            </button>
+          </div>
+
+          {/* Separator - Two Blue Dots - Centered */}
+          <div className="relative flex h-[25px] w-[25px] sm:h-[30px] sm:w-[30px] md:h-[35px] md:w-[35px] shrink-0 items-center justify-center">
+            <div className="absolute flex flex-col gap-0.5 sm:gap-1">
+              <div className="h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-blue-600" />
+              <div className="h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-blue-600" />
+            </div>
+          </div>
+
+          {/* Player 2 - Anindita R. (Right Side) */}
+          <div className="flex flex-1 items-center justify-end gap-2 md:gap-3 lg:gap-4 min-w-0">
+            <button
+              type="button"
+              onClick={() => setSelectedPlayerId(match.player1.id)}
+              className="relative h-[60px] w-[50px] sm:h-[80px] sm:w-[70px] md:h-[90px] md:w-[80px] lg:h-[100px] lg:w-[85px] shrink-0 cursor-pointer transition-opacity hover:opacity-80"
+            >
+              <Image
+                src={match.player1.avatar}
+                alt={match.player1.name}
+                width={85}
+                height={100}
+                className="h-full w-full object-contain"
+              />
+            </button>
+            <button
+              type="button"
+              onClick={() => setSelectedPlayerId(match.player1.id)}
+              className="group flex cursor-pointer flex-col items-start rounded-lg p-1.5 sm:p-2 transition-all hover:bg-gray-50 min-w-0"
+            >
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-tight sm:leading-[24px] md:leading-[28px] lg:leading-[30px] tracking-wide text-gray-900 truncate">
+                {match.player1.shortName}
+              </p>
+              <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs font-light leading-[10px] sm:leading-3 tracking-wide text-[#BACCFD] truncate">
+                {match.player1.country}
+              </p>
+            </button>
+          </div>
         </div>
       </div>
     </div>
