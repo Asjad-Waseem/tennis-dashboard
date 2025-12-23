@@ -5,3 +5,4 @@ export interface SidebarProps {
   onUpgradeClick?: () => void;
 }
 
+

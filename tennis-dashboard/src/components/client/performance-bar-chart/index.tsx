@@ -59,13 +59,7 @@ const PerformanceBarChart = ({ data }: Props) => {
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-2">
-                <div
-                  className="h-3 w-3 rounded"
-                  style={{
-                    background:
-                      gradients.chartBlue,
-                  }}
-                />
+                <div className="h-3 w-3 rounded bg-gradient-to-br from-[#4262FE] to-[#C059FF]" />
                 <span className="text-sm font-medium text-gray-700">
                   Purple
                 </span>
@@ -76,13 +70,7 @@ const PerformanceBarChart = ({ data }: Props) => {
             </div>
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-2">
-                <div
-                  className="h-3 w-3 rounded"
-                  style={{
-                    background:
-                      gradients.pink,
-                  }}
-                />
+                <div className="h-3 w-3 rounded bg-gradient-to-br from-[#F44771] to-[#FD29B5]" />
                 <span className="text-sm font-medium text-gray-700">Pink</span>
               </div>
               <span className="text-sm font-semibold text-gray-900">
@@ -127,7 +115,7 @@ const PerformanceBarChart = ({ data }: Props) => {
             radius={[0, 0, 0, 0]}
             barSize={5}
             background={{ fill: colors.primary.blueBackgroundLightest, radius: 10 }}
-            style={{ cursor: "pointer" }}
+            className="cursor-pointer"
           />
           <Bar
             dataKey="pink"
@@ -136,7 +124,7 @@ const PerformanceBarChart = ({ data }: Props) => {
             radius={[0, 0, 50, 50]}
             barSize={5}
             background={{ fill: colors.primary.blueBackgroundLightest, radius: 10 }}
-            style={{ cursor: "pointer" }}
+            className="cursor-pointer"
           />
         </BarStack>
 

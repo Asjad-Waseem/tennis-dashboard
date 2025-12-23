@@ -118,3 +118,4 @@ export const getRankingCardProps = (category: string, ranking: { position: numbe
   return null;
 };
 
+

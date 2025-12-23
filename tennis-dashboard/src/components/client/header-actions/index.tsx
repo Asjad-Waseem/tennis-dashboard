@@ -43,7 +43,7 @@ const HeaderActions = (): React.ReactElement => {
   }, []);
 
   return (
-    <div className="flex items-center gap-5 mr-7">
+    <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 mr-2 sm:mr-4 md:mr-6 lg:mr-7">
       {/* Search Icon */}
       <div ref={searchRef} className="relative">
         <button
@@ -92,6 +92,7 @@ const HeaderActions = (): React.ReactElement => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
         >
           <path
             fillRule="evenodd"
@@ -168,11 +169,12 @@ const HeaderActions = (): React.ReactElement => {
           viewBox="0 0 30 30"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-[30px] lg:h-[30px]"
         >
           <rect width="30" height="30" rx="5" fill="#D9C8FF" />
           <mask
             id="mask0_9_3513"
-            style={{ maskType: "alpha" }}
+            className="[mask-type:alpha]"
             maskUnits="userSpaceOnUse"
             x="0"
             y="0"
@@ -189,7 +191,7 @@ const HeaderActions = (): React.ReactElement => {
               />
               <mask
                 id="mask1_9_3513"
-                style={{ maskType: "alpha" }}
+                className="[mask-type:alpha]"
                 maskUnits="userSpaceOnUse"
                 x="7"
                 y="19"
@@ -231,7 +233,7 @@ const HeaderActions = (): React.ReactElement => {
               />
               <mask
                 id="mask2_9_3513"
-                style={{ maskType: "alpha" }}
+                className="[mask-type:alpha]"
                 maskUnits="userSpaceOnUse"
                 x="14"
                 y="15"
@@ -271,7 +273,7 @@ const HeaderActions = (): React.ReactElement => {
               />
               <mask
                 id="mask3_9_3513"
-                style={{ maskType: "alpha" }}
+                className="[mask-type:alpha]"
                 maskUnits="userSpaceOnUse"
                 x="11"
                 y="6"

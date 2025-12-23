@@ -1,5 +1,5 @@
-import CollapsibleSidebar from "@/components/client/layout/collapsible-siderbar";
-import Header from "@/components/server/header";
+import HeaderClient from "@/components/client/header-client";
+import DesktopSidebar from "@/components/client/layout/desktop-sidebar";
 import type { DashboardLayoutProps } from "./types";
 
 /**
@@ -7,7 +7,7 @@ import type { DashboardLayoutProps } from "./types";
  *
  * Why Server Component:
  * - Layout wrapper that doesn't require client-side interactivity
- * - Composes other server components (Sidebar, Header)
+ * - Composes client components (HeaderClient handles sidebar state)
  * - Provides structure for the entire dashboard
  */
 const DashboardLayout = ({
@@ -15,14 +15,14 @@ const DashboardLayout = ({
 }: DashboardLayoutProps): React.ReactElement => {
   return (
     <div className="flex min-h-screen bg-[#F5F7FA]">
-      {/* Sidebar - Collapsible, hidden on mobile, visible on desktop */}
-      <CollapsibleSidebar />
+      {/* Desktop Sidebar - Part of flex layout, visible on lg+ */}
+      <DesktopSidebar />
 
       {/* Main Content Area */}
-      <div className="flex flex-1 flex-col">
-        <Header />
+      <div className="flex flex-1 flex-col min-w-0 w-full lg:w-auto">
+        <HeaderClient />
         <main className="flex-1 bg-[#dbe6fd]">
-          <div className="container mx-auto px-6 py-12 lg:px-8">{children}</div>
+          <div className="container mx-auto px-4 py-6 sm:px-6 sm:py-8 md:py-10 lg:px-8 lg:py-12">{children}</div>
         </main>
       </div>
     </div>
