@@ -167,22 +167,23 @@ const LatestScores = (): React.ReactElement => {
           </svg>
         </div>
 
-        {/* Player 1 Row */}
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2 min-w-0 flex-1">
+        {/* Scores Container - Using Grid for Perfect Alignment */}
+        <div className="grid grid-cols-[1fr_repeat(3,auto)_auto] items-center gap-2">
+          {/* Player 1 Row */}
+          <div className="flex items-center gap-2 min-w-0">
             <span className="text-xs sm:text-sm lg:text-[15px] font-semibold leading-[14px] sm:leading-[16px] lg:leading-[18px] tracking-wide text-black truncate">
               {latestMatch.player1.shortName} ({latestMatch.player1.countryCode})
             </span>
           </div>
-          <div className="flex items-center gap-2 sm:gap-3">
-            {latestMatch.score.sets.map((set, index) => (
-              <span
-                key={index}
-                className="text-xs sm:text-sm lg:text-[15px] font-normal leading-[14px] sm:leading-[16px] lg:leading-[18px] tracking-wide text-black min-w-[16px] text-center"
-              >
-                {set.player1}
-              </span>
-            ))}
+          {latestMatch.score.sets.map((set, index) => (
+            <span
+              key={`player1-${index}`}
+              className="text-xs sm:text-sm lg:text-[15px] font-normal leading-[14px] sm:leading-[16px] lg:leading-[18px] tracking-wide text-black w-4 sm:w-5 text-center"
+            >
+              {set.player1}
+            </span>
+          ))}
+          <div className="flex items-center justify-end">
             {latestMatch.winner === "player1" && (
               <div className="h-5 sm:h-6 px-1.5 sm:px-2 rounded-md bg-yellow-50 flex items-center">
                 <span className="text-[10px] sm:text-xs lg:text-[15px] font-semibold leading-[12px] sm:leading-[14px] lg:leading-[18px] tracking-wide text-yellow-600">
@@ -191,24 +192,22 @@ const LatestScores = (): React.ReactElement => {
               </div>
             )}
           </div>
-        </div>
 
-        {/* Player 2 Row */}
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2 min-w-0 flex-1">
+          {/* Player 2 Row */}
+          <div className="flex items-center gap-2 min-w-0">
             <span className="text-xs sm:text-sm lg:text-[15px] font-normal leading-[14px] sm:leading-[16px] lg:leading-[18px] tracking-wide text-black truncate">
               {latestMatch.player2.shortName} ({latestMatch.player2.countryCode})
             </span>
           </div>
-          <div className="flex items-center gap-2 sm:gap-3">
-            {latestMatch.score.sets.map((set, index) => (
-              <span
-                key={index}
-                className="text-xs sm:text-sm lg:text-[15px] font-normal leading-[14px] sm:leading-[16px] lg:leading-[18px] tracking-wide text-black min-w-[16px] text-center"
-              >
-                {set.player2}
-              </span>
-            ))}
+          {latestMatch.score.sets.map((set, index) => (
+            <span
+              key={`player2-${index}`}
+              className="text-xs sm:text-sm lg:text-[15px] font-normal leading-[14px] sm:leading-[16px] lg:leading-[18px] tracking-wide text-black w-4 sm:w-5 text-center"
+            >
+              {set.player2}
+            </span>
+          ))}
+          <div className="flex items-center justify-end">
             {latestMatch.winner === "player2" && (
               <div className="h-5 sm:h-6 px-1.5 sm:px-2 rounded-md bg-yellow-50 flex items-center">
                 <span className="text-[10px] sm:text-xs lg:text-[15px] font-semibold leading-[12px] sm:leading-[14px] lg:leading-[18px] tracking-wide text-yellow-600">
